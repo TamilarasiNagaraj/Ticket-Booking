@@ -11,7 +11,7 @@ from django.http import HttpResponse
 from reportlab.pdfgen import canvas
 import random
 import razorpay
-@login_required(login_url='login')
+
 def home(request):
     categories = Category.objects.all()
     events = Event.objects.all()
