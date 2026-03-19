@@ -1,0 +1,238 @@
+.hotel-ui-wrapper-x1 {
+    background: #fff;
+    padding: 30px 40px;
+}
+.flight-search-section {
+    position: relative;
+    background: url("../images/bea.png") no-repeat;
+    background-size: cover;
+    height: 300px;
+
+    animation: moveBg 15s linear infinite;
+}
+/* Tabs */
+.hotel-ui-tabs-x1 {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #222;
+    margin-bottom: 25px;
+}
+
+.hotel-ui-tabs-x1 span {
+    cursor: pointer;
+    position: relative;
+}
+
+/* Active underline EXACT */
+.hotel-ui-tabs-x1 .active-x1::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 2px;
+    background: red;
+}
+
+/* Cards layout */
+.hotel-ui-cards-x1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Each card */
+.hotel-ui-card-x1 {
+    width: 23%;
+}
+
+/* Image container */
+.img-box-x1 {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.img-box-x1 img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+/* Overlay white rectangle EXACT */
+.overlay-border-x1 {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+/* Text */
+.hotel-ui-card-x1 p {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #111;
+}
+.popdest-wrapper-x9 {
+    background: #fff;
+    padding: 30px 40px;
+}
+
+.popdest-title-x9 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+/* Cards layout */
+.popdest-cards-x9 {
+    display: flex;
+    gap: 25px;
+}
+
+/* Card */
+.popdest-card-x9 {
+    background: white;
+    border-radius: 12px;
+    width: 32%;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Image */
+.popdest-img-box-x9 {
+    position: relative;
+}
+
+.popdest-img-box-x9 img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+/* Featured badge */
+.popdest-badge-x9 {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #ff4d4d;
+    color: white;
+    font-size: 12px;
+    padding: 5px 12px;
+    border-radius: 20px;
+}
+
+/* Content */
+.popdest-content-x9 {
+    padding: 15px;
+}
+
+.popdest-content-x9 h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.location-x9 {
+    font-size: 13px;
+    color: #666;
+}
+
+.rating-x9 {
+    font-size: 13px;
+    margin: 8px 0;
+}
+
+.amenities-x9-title {
+    font-size: 12px;
+    color: #888;
+}
+
+.amenities-x9 {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+/* Footer */
+.popdest-footer-x9 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price-label-x9 {
+    font-size: 11px;
+    color: #888;
+}
+
+.price-x9 {
+    color: #ff4d4d;
+    font-weight: bold;
+}
+
+/* Button */
+.btn-x9 {
+    background: #ff6b5c;
+    border: none;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+}
+.hotel-banner-x2 {
+    position: relative;
+    height: 220px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 30px 40px;
+
+    /* Background Image */
+    background: url("../images/ths.jpg") center/cover no-repeat;
+}
+
+/* Gradient Overlay */
+.hotel-banner-overlay-x2 {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(0, 80, 80, 0.8),
+        rgba(255, 120, 100, 0.8)
+    );
+}
+
+/* Content Center */
+.hotel-banner-content-x2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    width: 80%;
+}
+
+.hotel-banner-content-x2 h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.hotel-banner-content-x2 p {
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+/* Button */
+.hotel-banner-btn-x2 {
+    background: #ff6b5c;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-size: 14px;
+    cursor: pointer;
+}

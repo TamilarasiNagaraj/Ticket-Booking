@@ -1,0 +1,275 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/card.css' %}">
+        <link rel="stylesheet" href="{% static 'css/hotels.css' %}">
+<!-- SEARCH SECTION -->
+<section class="flight-search-section">
+
+    <!-- TEXT OVER IMAGE -->
+    <div class="search-overlay1">
+        <h2>Discover Fun Activities Near you </h2>
+        <p style="font-size: 11px;">Booking exciting experience including adveture sports, theme parks, indoor games, and family activities</p>
+    </div>
+
+    <!-- SEARCH BOX -->
+    <div class="search-box-container1">
+        <form method="GET" action="{% url 'hotels' %}" class="search-box1">
+
+            <input type="text" name="area" placeholder="Area" value="{{ request.GET.from }}">
+            <input type="datetime" name="from" placeholder="Checkin" value="{{ request.GET.from }}">
+            <input type="datetime" name="to" placeholder="Checkout" value="{{ request.GET.from }}">
+           
+
+            <button type="submit">Search</button>
+
+      
+    </div>
+
+</section>
+<br>
+<br>
+
+<div class="hotel-ui-wrapper-x1">
+
+    <!-- TOP MENU -->
+    <div class="hotel-ui-tabs-x1">
+        <span>Beach Vacations</span>
+        <span>Weekend Getaways</span>
+        <span>Mountain Calling</span>
+        <span>Stay Like Royals</span>
+        <span>Party Destinations</span>
+    </div>
+
+    <!-- CARDS -->
+    <div class="hotel-ui-cards-x1">
+
+        <div class="hotel-ui-card-x1">
+            <div class="img-box-x1">
+               <img src="/static/images/vib.jpeg">
+                <div class="overlay-border-x1"></div>
+            </div>
+            <p>Neon Nights Hotel</p>
+        </div>
+
+        <div class="hotel-ui-card-x1">
+            <div class="img-box-x1">
+               <img src="/static/images/sky.webp">
+                <div class="overlay-border-x1"></div>
+            </div>
+            <p>Skyline Party Suites</p>
+        </div>
+
+        <div class="hotel-ui-card-x1">
+            <div class="img-box-x1">
+                <img src="/static/images/clu.jpg">
+                <div class="overlay-border-x1"></div>
+            </div>
+            <p>Club Vista Resort</p>
+        </div>
+
+        <div class="hotel-ui-card-x1">
+            <div class="img-box-x1">
+                 <img src="/static/images/swi.jpg">
+                <div class="overlay-border-x1"></div>
+            </div>
+            <p>Vibe City Hotel</p>
+        </div>
+
+    </div>
+
+</div>
+<div class="popdest-wrapper-x9">
+
+    <h2 class="popdest-title-x9">Popular Destinations</h2>
+
+    <div class="popdest-cards-x9">
+
+        <!-- Card 1 -->
+        <div class="popdest-card-x9">
+            <div class="popdest-img-box-x9">
+               <img src="/static/images/a.jpg">
+                <span class="popdest-badge-x9">Featured</span>
+            </div>
+
+            <div class="popdest-content-x9">
+                <h3>Luxury Resort & Spa</h3>
+                <p class="location-x9">📍 Miami Beach, FL</p>
+
+                <p class="rating-x9">⭐ 4.8 (1250 reviews)</p>
+
+                <p class="amenities-x9-title">Popular Amenities</p>
+                <p class="amenities-x9">WiFi | Pool | Spa | Restaurant</p>
+
+                <div class="popdest-footer-x9">
+                    <div>
+                        <p class="price-label-x9">Per night from</p>
+                        <p class="price-x9">₹1,200</p>
+                    </div>
+
+                    <button class="btn-x9">View Rooms</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="popdest-card-x9">
+            <div class="popdest-img-box-x9">
+               <img src="/static/images/dwn.jpg">
+                <span class="popdest-badge-x9">Featured</span>
+            </div>
+
+            <div class="popdest-content-x9">
+                <h3>Downtown Business Hotel</h3>
+                <p class="location-x9">📍 New York, NY</p>
+
+                <p class="rating-x9">⭐ 4.8 (1250 reviews)</p>
+
+                <p class="amenities-x9-title">Popular Amenities</p>
+                <p class="amenities-x9">WiFi | Gym | Parking | Restaurant</p>
+
+                <div class="popdest-footer-x9">
+                    <div>
+                        <p class="price-label-x9">Per night from</p>
+                        <p class="price-x9">₹199</p>
+                    </div>
+
+                    <button class="btn-x9">View Rooms</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="popdest-card-x9">
+            <div class="popdest-img-box-x9">
+                <img src="/static/images/thubd.jpg">
+                <span class="popdest-badge-x9">Featured</span>
+            </div>
+
+            <div class="popdest-content-x9">
+                <h3>Beachfront Paradise</h3>
+                <p class="location-x9">📍 Malibu, CA</p>
+
+                <p class="rating-x9">⭐ 4.9 (2100 reviews)</p>
+
+                <p class="amenities-x9-title">Popular Amenities</p>
+                <p class="amenities-x9">WiFi | Pool | Spa | Restaurant</p>
+
+                <div class="popdest-footer-x9">
+                    <div>
+                        <p class="price-label-x9">Per night from</p>
+                        <p class="price-x9">₹399</p>
+                    </div>
+
+                    <button class="btn-x9">View Rooms</button>
+                </div>
+            </div>
+        </div>
+ 
+
+    </div>
+    <br>
+<div class="popdest-cards-x9">
+
+    <!-- Card 1 -->
+    <div class="popdest-card-x9">
+        <div class="popdest-img-box-x9">
+           <img src="/static/images/ths.jpg">
+            <span class="popdest-badge-x9">Featured</span>
+        </div>
+
+        <div class="popdest-content-x9">
+            <h3>Mountain Lodge</h3>
+            <p class="location-x9">📍 Aspen, CO</p>
+
+            <p class="rating-x9">⭐ 4.8 (1250 reviews)</p>
+
+            <p class="amenities-x9-title">Popular Amenities</p>
+            <p class="amenities-x9">WiFi | Fireplace | Ski Access | Restaurant</p>
+
+            <div class="popdest-footer-x9">
+                <div>
+                    <p class="price-label-x9">Per night from</p>
+                    <p class="price-x9">₹249</p>
+                </div>
+
+                <button class="btn-x9">View Rooms</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="popdest-card-x9">
+        <div class="popdest-img-box-x9">
+            <img src="/static/images/t.webp">
+            <span class="popdest-badge-x9">Featured</span>
+        </div>
+
+        <div class="popdest-content-x9">
+            <h3>Urban Boutique Hotel</h3>
+            <p class="location-x9">📍 San Francisco, CA</p>
+
+            <p class="rating-x9">⭐ 4.6 (920 reviews)</p>
+
+            <p class="amenities-x9-title">Popular Amenities</p>
+            <p class="amenities-x9">WiFi | Rooftop | Bar | Gym | Parking</p>
+
+            <div class="popdest-footer-x9">
+                <div>
+                    <p class="price-label-x9">Per night from</p>
+                    <p class="price-x9">₹1,200</p>
+                </div>
+
+                <button class="btn-x9">View Rooms</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="popdest-card-x9">
+        <div class="popdest-img-box-x9">
+            <img src="/static/images/lakessid.jpg">
+            <span class="popdest-badge-x9">Featured</span>
+        </div>
+
+        <div class="popdest-content-x9">
+            <h3>Lakeside Retreat</h3>
+            <p class="location-x9">📍 Lake Tahoe, NV</p>
+
+            <p class="rating-x9">⭐ 4.8 (1250 reviews)</p>
+
+            <p class="amenities-x9-title">Popular Amenities</p>
+            <p class="amenities-x9">WiFi | Pool | Spa | Restaurant</p>
+
+            <div class="popdest-footer-x9">
+                <div>
+                    <p class="price-label-x9">Per night from</p>
+                    <p class="price-x9">₹1,200</p>
+                </div>
+
+                <button class="btn-x9">View Rooms</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+<div class="hotel-banner-x2">
+
+    <div class="hotel-banner-overlay-x2"></div>
+
+    <div class="hotel-banner-content-x2">
+        <h2>Plan Your Next Stay Today</h2>
+        <p>
+            Explore amazing hotels and resorts across the world and enjoy a
+            comfortable stay wherever you travel.
+        </p>
+        <button class="hotel-banner-btn-x2">Book Hotels</button>
+    </div>
+
+</div>
+<!-- THEN LOAD JS -->
+<script src="{% static 'js/slider.js' %}"></script>
+{% endblock %}

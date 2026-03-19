@@ -1,0 +1,289 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/card.css' %}">
+<!-- SEARCH SECTION -->
+<section class="flight-search-section">
+
+    <!-- TEXT OVER IMAGE -->
+    <div class="search-overlay1">
+        <h2>Search Flights</h2>
+        <p>Find the best flights at the best prices.</p>
+    </div>
+
+    <!-- SEARCH BOX -->
+    <div class="search-box-container1">
+        <form method="GET" action="{% url 'flights' %}" class="search-box1">
+
+            <input type="text" name="from" placeholder="From" value="{{ request.GET.from }}">
+            <input type="text" name="to" placeholder="To" value="{{ request.GET.from }}">
+            <input type="date" name="date" value="{{ request.GET.to }}">
+
+            <button type="submit">Search Flight</button>
+
+      
+    </div>
+
+</section>
+
+<div class="flight-main-container">
+
+    <!-- LEFT FILTER -->
+    
+    <div class="flight-filter">
+
+        <div class="flight-filter-header">Filters</div>
+
+        <!-- PRICE -->
+        <div class="flight-filter-section">
+            <div class="flight-filter-title" onclick="toggleFilter(this)">
+                Price Range ▼
+            </div>
+
+            <div class="flight-filter-content">
+                <input type="range" name="price" min="0" max="8000" value="8000" id="priceRange">
+                <p>₹0 - ₹<span id="priceValue">    8000</span></p>
+            </div>
+        </div>
+
+        <!-- DEPARTURE -->
+        <div class="flight-filter-section">
+            <div class="flight-filter-title" onclick="toggleFilter(this)">
+                Arrival Time ▼
+            </div>
+
+            <div class="flight-filter-content">
+                <div class="flight-time-box"> <input type="radio" name="arrival" value="0-6"><i class="fa-regular fa-sun"></i> | 00:00 - 06:00</div>
+                <div class="flight-time-box"> <input type="radio" name="arrival" value="6-12"><i class="fa-solid fa-cloud-sun"></i> | 06:00 - 12:00</div>
+                <div class="flight-time-box"> <input type="radio" name="arrival" value="12-18"> <i class="fa-regular fa-sun"></i> | 12:00 - 18:00</div>
+                <div class="flight-time-box"> <input type="radio" name="arrival" value="18-24"><i class="fa-regular fa-moon"></i> | 18:00 - 24:00</div>
+            </div>
+        </div>
+  <div class="flight-filter-section">
+            <div class="flight-filter-title" onclick="toggleFilter(this)">
+                Departure Time ▼
+            </div>
+
+            <div class="flight-filter-content">
+                <div class="flight-time-box"><input type="radio" name="departure" value="0-6"> <i class="fa-regular fa-sun"></i> | 00:00 - 06:00</div>
+                <div class="flight-time-box"> <input type="radio" name="departure" value="6-12"><i class="fa-solid fa-cloud-sun"></i> | 06:00 - 12:00</div>
+                <div class="flight-time-box">  <input type="radio" name="departure" value="12-18"><i class="fa-regular fa-sun"></i> | 12:00 - 18:00</div>
+                <div class="flight-time-box">  <input type="radio" name="departure" value="18-24"><i class="fa-regular fa-moon"></i> | 18:00 - 24:00</div>
+            </div>
+        </div>
+        
+        <!-- AIRLINE FILTER -->
+<div class="flight-filter-section">
+    <div class="flight-filter-title" onclick="toggleFilter(this)">
+        Airline ▼
+    </div>
+
+    <div class="flight-filter-content">
+
+        <div class="flight-option">
+            <input type="radio" name="airline" value="IndiGo">
+            <div class="flight-radio active"></div>
+            <span>IndiGo</span>
+            <small>6E</small>
+        </div>
+
+        <div class="flight-option">
+               <input type="radio" name="airline" value="Air India">
+            <div class="flight-radio red"></div>
+            <span>Air India</span>
+            <small>AI</small>
+        </div>
+
+        <div class="flight-option">
+               <input type="radio" name="airline" value="Vistara">
+            <div class="flight-radio"></div>
+            <span>Vistara</span>
+            <small>UK</small>
+        </div>
+
+        <div class="flight-option">
+            <input type="radio" name="airline" value="SpiceJet">
+            <div class="flight-radio"></div>
+            <span>SpiceJet</span>
+            <small>SG</small>
+        </div>
+
+        <div class="flight-option">
+            <input type="radio" name="airline" value="Akasa Air">
+            <div class="flight-radio"></div>
+            <span>Akasa Air</span>
+            <small>QP</small>
+        </div>
+
+    </div>
+    
+    </form>
+</div>
+
+
+<!-- STOP FILTER -->
+<div class="flight-filter-section">
+    <div class="flight-filter-title" onclick="toggleFilter(this)">
+        Stop ▼
+    </div>
+
+    <div class="flight-filter-content">
+ 
+        <div class="flight-option">
+            ✈️ <span>Direct Flight</span>
+        </div>
+
+        <div class="flight-option">
+            🛫 <span>1 Stop Flight</span>
+        </div>
+
+        <div class="flight-option">
+          
+            🛬 <span>2 Stop Flight</span>
+        </div>
+
+    </div>
+</div>
+
+
+    </div>
+
+    <!-- RIGHT CONTENT -->
+<div class="flight-content">
+{% if flights %}
+    {% for flight in flights %}
+
+    <div class="flight-card-final">
+
+        <!-- TOP ROW -->
+        <div class="flight-top">
+
+            <div class="flight-airline">
+                {% if flight.logo %}
+                    <img src="{{ flight.logo.url }}" class="flight-logo-final">
+                {% endif %}
+
+                <div>
+                    <h3>{{ flight.name }}</h3>
+                    <p style="font-size: 12px;">Non stop</p>
+                </div>
+            </div>
+
+            <div class="flight-price-box">
+                <p>⏱ {{ flight.duration }}</p>
+                <h3 class="price">₹{{ flight.price }}</h3>
+            </div>
+
+        </div>
+
+        <!-- BOTTOM ROW -->
+        <div class="flight-bottom">
+
+            <div class="flight-depart">
+    <p class="label">Departure</p>
+    <h2 class="time">{{ flight.departure }}</h2>
+    <small class="city">{{ flight.from_city }}</small>
+</div>
+
+<div class="flight-arrive">
+    <p class="label">Arrival</p>
+    <h2 class="time">{{ flight.arrival }}</h2>
+    <small class="city">{{ flight.to_city }}</small>
+</div>
+            <div class="flight-action">
+                <a href="{% url 'book_flight' flight.id %}" class="book-btn">
+                    <button>Book Now</button>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+{% else %}
+    <div class="no-data">
+            ❌ No records found
+        </div>
+
+{% endif %}
+</div>
+</div>
+<div class="popular-routes-section">
+
+    <h2 class="routes-title">Popular Routes</h2>
+
+    <div class="routes-container">
+
+        <div class="route-item">Chennai → Bangalore</div>
+        <div class="route-item">Mumbai → Delhi</div>
+        <div class="route-item">Hyderabad → Goa</div>
+        <div class="route-item">Delhi → Kolkata</div>
+
+    </div>
+
+</div>
+<div class="airlines-section">
+
+    <h2 class="airlines-title">Airlines We Work With</h2>
+
+    <div class="airlines-slider">
+
+        <div class="airlines-track">
+
+            <img src="{% static 'images/images (1).png' %}" class="airline-logo-slide">
+<img src="{% static 'images/images (3).png' %}" class="airline-logo-slide">
+<img src="{% static 'images/Vistara_Logo.png' %}" class="airline-logo-slide">
+<img src="{% static 'images/images.png' %}" class="airline-logo-slide">
+<img src="{% static 'images/aka.png' %}" class="airline-logo-slide">
+
+            <!-- duplicate for smooth infinite scroll -->
+   <img src="{% static 'images/images (1).png' %}" class="airline-logo-slide">
+<img src="{% static 'images/images (3).png' %}" class="airline-logo-slide">
+<img src="{% static 'images/Vistara_Logo.png' %}" class="airline-logo-slide">
+<img src="{% static 'images/images.png' %}" class="airline-logo-slide">
+<img src="{% static 'images/aka.png' %}" class="airline-logo-slide">
+        </div>
+
+    </div>
+
+</div>
+<div class="cta-section">
+
+    <h2 class="cta-title">Ready to Book Your Flight?</h2>
+
+    <p class="cta-text">
+        Search thousands of flights and find the best deal for your journey.
+    </p>
+
+    <a href="/flights">
+        <button class="cta-btn">Search Flights</button>
+    </a>
+
+</div>
+<script>
+document.querySelectorAll('.flight-time-box, .flight-option').forEach(item => {
+    item.addEventListener('click', function() {
+        const input = this.querySelector('input');
+        if (input) {
+            input.checked = true;
+            this.closest('form').submit(); // auto submit
+        }
+    });
+});
+
+document.querySelectorAll('.flight-option').forEach(item => {
+    item.addEventListener('click', function() {
+        const input = this.querySelector('input');
+        if (input) {
+            input.checked = true;
+            this.closest('form').submit();
+        }
+    });
+});
+</script>
+<!-- THEN LOAD JS -->
+<script src="{% static 'js/slider.js' %}"></script>
+{% endblock %}

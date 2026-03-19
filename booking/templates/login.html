@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- LOGIN SECTION -->
+<section class="login-section">
+
+    <!-- LEFT IMAGE -->
+    <div class="login-left">
+        <img src="{% static 'images/login.png' %}" alt="Travel">
+    </div>
+
+    <!-- RIGHT FORM -->
+    <div class="login-card">
+        <h2>Welcome Back</h2>
+        <p>Sign in to continue booking</p>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <label>Email or Username</label>
+            <div class="input-box">
+                <i class="fa fa-envelope"></i>
+                <input type="text" name="email" placeholder="Enter email or username">
+            </div>
+
+            <label>Password</label>
+            <div class="input-box">
+                <i class="fa fa-lock"></i>
+                <input type="password" name="password" placeholder="Enter password" required>
+            </div>
+
+            <div class="form-options">
+                <label>
+                    <input type="checkbox"> Remember Me
+                </label>
+                <a href="#" style="color: red;">Forgot Password?</a>
+            </div>
+
+<button type="submit" class="btn">Login</button>
+
+            <p class="signup-text">
+                Don't have an account?
+               <a href="{% url 'register' %}" style="color: red;">SignUp</a>
+            </p>
+
+            {% for message in messages %}
+                <p class="error">{{ message }}</p>
+            {% endfor %}
+        </form>
+    </div>
+
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div style="text-align:center; margin-top:80px;">
+
+    <h2>Booking Confirmed ✅</h2>
+
+    <p><b>Reference:</b> {{ booking_ref }}</p>
+
+    <h3>{{ item.name }}</h3>
+
+    <p>Total Paid: ₹{{ total_price }}</p>
+
+    <br>
+
+    <a href="{% url 'home' %}" style=" color:rgb(20, 16, 223); padding:10px;text-decoration: none;margin-bottom: 50px;">
+        Return Home
+    </a>
+<br>
+</div>
+
+{% endblock %}

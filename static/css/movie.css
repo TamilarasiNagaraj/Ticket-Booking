@@ -1,0 +1,1016 @@
+
+/* BACKGROUND SECTION */
+.flight-search-section {
+    position: relative;
+    background: url("../images/popc.png") no-repeat;
+    background-size: cover;
+    height: 300px;
+
+    animation: moveBg 15s linear infinite;
+}
+
+/* ANIMATION */
+@keyframes moveBg {
+    0% {
+        background-position: top center;
+    }
+    3% {
+        background-position: bottom center;
+    }
+}
+/* DARK OVERLAY TEXT */
+.search-overlay1 {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.5);
+    padding: 20px 40px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+}
+.search-overlay1 p{
+font-size: 10px;
+}
+/* SEARCH BOX */
+.search-box-container1 {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+}
+
+/* FORM */
+.search-box1 {
+    display: flex;
+    gap: 15px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* INPUT */
+.search-box1 input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: #f0f0f0;
+}
+
+/* BUTTON */
+.search-box1 button {
+    background: #ff5c5c;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+/* MAIN LAYOUT */
+.flight-main-container1 {
+    display: flex;
+    gap: 20px;
+    padding: 40px;
+    padding-bottom: 60px;
+   
+  
+}
+
+/* FILTER */
+.flight-filter {
+    width: 260px;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.flight-filter-header {
+    background: #ff3b30;
+    color: #fff;
+    padding: 15px;
+    font-size: 18px;
+}
+
+/* DROPDOWN */
+.flight-filter-section {
+    border-top: 1px solid #eee;
+}
+
+.flight-filter-title {
+    padding: 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+.flight-filter-content {
+    display: none;
+    padding: 10px;
+}
+
+.flight-filter-section.active .flight-filter-content {
+    display: block;
+}
+
+/* TIME BOX */
+.flight-time-box {
+    background: #eee;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+/* FLIGHT LIST */
+.flight-list {
+    flex: 1;
+}
+
+/* CARD */
+.flight-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    border-left: 4px solid red;
+}
+
+.flight-time {
+    display: flex;
+    gap: 40px;
+    margin-top: 10px;
+}
+
+/* RIGHT */
+.flight-price {
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.flight-book-btn {
+    background: teal;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+/* OPTION BOX */
+.flight-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #eee;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+/* LEFT ALIGN */
+.flight-option span {
+    flex: 1;
+    margin-left: 10px;
+}
+
+/* SMALL CODE (AI, 6E) */
+.flight-option small {
+    color: #555;
+}
+
+/* RADIO STYLE */
+.flight-radio {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #0f3d3e;
+    border-radius: 50%;
+}
+
+/* ACTIVE GREEN */
+.flight-radio.active {
+    background: #0f3d3e;
+}
+
+/* RED OPTION */
+.flight-radio.red {
+    border-color: red;
+}
+
+.flight-radio.red.active {
+    background: red;
+}
+
+/* HOVER */
+.flight-option:hover {
+    background: #ddd;
+}
+.flight-left img {
+    height: 40px;
+    margin-bottom: 5px;
+}
+
+.flight-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f5f5f5;
+    padding: 20px;
+    margin: 15px;
+    border-radius: 15px;
+}
+
+/* LEFT */
+.flight-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.flight-logo {
+    width: 60px;   /* 🔥 important */
+    height: auto;
+}
+
+/* CENTER */
+.flight-center {
+    display: flex;
+    gap: 60px;
+    text-align: center;
+}
+
+/* RIGHT */
+.flight-right {
+    text-align: right;
+}
+
+.flight-price {
+    color: red;
+    font-weight: bold;
+}
+
+/* BUTTON */
+.flight-book-btn {
+    background: teal;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+/* TOP HEADER */
+.top-header {
+    background: #0f766e;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 22px;
+    height: 180px;
+}
+
+/* STEP CARD */
+.step-card {
+    background: #f2f2f2;
+    width: 80%;
+    margin: -30px auto 20px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.info-text {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* FLEX */
+.step-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.airline img {
+    height: 50px;
+    width: 120px;
+}
+
+.steps {
+    display: flex;
+    align-items: center;
+}
+.step {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #ff3b30;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.line {
+    width: 320px;
+    height: 4px;
+    background: #ff3b30;
+}
+
+/* LABELS */
+.labels {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* TRAIN TYPE */
+.train-option input {
+    display: none;
+}
+
+.train-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    background: #f1f1f1;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.train-option input:checked + .train-box {
+    background: #ddd;
+    color: red;
+}
+
+/* CLASS */
+.class-option input {
+    display: none;
+}
+
+.class-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background: #f1f1f1;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.class-option input:checked + .class-box {
+    background: #ddd;
+}
+
+.class-box span {
+    font-size: 14px;
+}
+
+.class-box b {
+    font-size: 14px;
+}
+/* DURATION */
+.duration-option input {
+    display: none;
+}
+
+.duration-box {
+    padding: 12px;
+    background: #f1f1f1;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.duration-option input:checked + .duration-box {
+    background: #ddd;
+    color: red;
+}
+
+/* RUNNING DAYS */
+.days-container {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.days-container label {
+    cursor: pointer;
+}
+
+.days-container input {
+    display: none;
+}
+
+.days-container span {
+    display: inline-block;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 8px;
+}
+
+.days-container input:checked + span {
+    background: #333;
+    color: white;
+}
+
+/* SECTION */
+.train-routes-section {
+    background: linear-gradient(to right, #003c3c, #005f5f);
+    padding: 30px;
+    border-radius: 15px;
+    margin: 40px 0;
+}
+
+/* TITLE */
+.train-routes-title {
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* CONTAINER */
+.train-routes-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* CARD */
+.train-route-card {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 12px;
+    width: 22%;
+    text-align: center;
+    border-bottom: 3px solid red;
+    transition: 0.3s;
+}
+
+.train-route-card h3 {
+    color: red;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.train-route-card p {
+    font-size: 13px;
+    margin: 5px 0;
+}
+
+/* HOVER */
+.train-route-card:hover {
+    transform: translateY(-5px);
+}
+/* CTA SECTION */
+.train-cta-section {
+    position: relative;
+    background: url('/static/images/bused.png') center/cover no-repeat;
+    height: 220px;
+    border-radius: 15px;
+    margin: 40px 0;
+    overflow: hidden;
+}
+
+/* OVERLAY */
+.train-cta-overlay {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 50, 50, 0.7), rgba(255, 100, 50, 0.5));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+/* TEXT */
+.train-cta-overlay h2 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.train-cta-overlay p {
+    color: #eee;
+    font-size: 13px;
+    max-width: 600px;
+    margin-bottom: 15px;
+}
+
+/* BUTTON */
+.train-cta-btn {
+    background: #ff5a4f;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.train-cta-btn:hover {
+    background: #ff3b30;
+}
+
+.testimonial-slider1 {
+    padding: 60px 20px;
+    overflow: hidden;
+
+    background: 
+        linear-gradient(rgba(11, 61, 58, 0.7), rgba(11, 61, 58, 0.7)),
+        url("/static/images/c3.png");
+
+    background-size: cover;
+    background-position: center;
+
+    height: 300px;
+}
+.train-card {
+    display: flex;
+    justify-content: space-between;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    border-left: 4px solid red;
+}
+
+.train-left h3 {
+    margin-bottom: 5px;
+}
+
+.train-time {
+    display: flex;
+    gap: 40px;
+    margin-top: 15px;
+}
+
+.train-time h2 {
+    margin: 5px 0;
+}
+
+.train-right {
+    text-align: right;
+}
+
+.train-right .price {
+    color: red;
+    margin: 10px 0;
+}
+
+.book-btn {
+    background: teal;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+
+body {
+    background: #fff;
+    font-family: Arial, sans-serif;
+}
+
+/* MAIN LAYOUT */
+.mv-main {
+    display: flex;
+    gap: 30px;
+    padding: 20px;
+}
+
+/* LEFT FILTER */
+.mv-left {
+    width: 260px;
+    background: #fff;
+    border-radius: 10px;
+    padding-bottom: 20px;
+}
+
+/* FILTER HEADER */
+.mv-filter-header {
+    background: #f44336;
+    color: #fff;
+    padding: 15px;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+}
+
+/* FILTER SECTION */
+.mv-section {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.mv-section h4 {
+    margin-bottom: 10px;
+}
+
+.mv-section label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* RADIO STYLE */
+.mv-section input[type="radio"] {
+    accent-color: #f44336;
+}
+
+/* RIGHT SIDE */
+.mv-right {
+    flex: 1;
+}
+
+/* TITLES */
+.mv-title {
+    margin-top: 10px;
+}
+
+.mv-desc {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* CARD GRID */
+.mv-cards {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+/* MOVIE CARD */
+.mv-card {
+    position: relative;
+    width: 220px;
+}
+
+.mv-card img {
+    width: 100%;
+    height: 300px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+/* FLOATING INFO BOX */
+.mv-card-info {
+    position: absolute;
+    bottom: -20px;
+    left: 10%;
+    width: 80%;
+    background: #eee;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.mv-card-info h3 {
+    margin: 0;
+    font-size: 15px;
+}
+
+.mv-card-info span {
+    font-size: 13px;
+    color: #555;
+}
+/* GENRE SECTION */
+.mv-genre-section {
+    background: #0f7c78;
+    padding: 30px 20px;
+    border-radius: 15px;
+    margin: 20px;
+    text-align: center;
+}
+
+/* TITLE */
+.mv-genre-section h2 {
+    color: white;
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+
+/* GENRE LIST */
+.mv-genre-list {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+/* GENRE PILLS */
+.mv-genre-pill {
+    background: #e0e0e0;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* HOVER EFFECT */
+.mv-genre-pill:hover {
+    background: white;
+    transform: scale(1.05);
+}
+
+/* SECTION */
+.mv-rec-section {
+    padding: 20px;
+}
+
+.mv-rec-title {
+    margin-bottom: 20px;
+}
+
+/* GRID */
+.mv-rec-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* CARD */
+.mv-rec-card {
+    width: 250px;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* IMAGE */
+.mv-rec-img {
+    position: relative;
+}
+
+.mv-rec-img img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+/* RATING BADGE */
+.mv-rating {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff4d4d;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+/* MOVIE NAME */
+.mv-rec-name {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* DETAILS */
+.mv-rec-details {
+    padding: 12px;
+}
+
+/* META */
+.mv-rec-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* SHOWTIMES */
+.mv-rec-show {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.mv-rec-times {
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+/* BOTTOM */
+.mv-rec-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* PRICE */
+.mv-price {
+    color: #e53935;
+    font-weight: bold;
+}
+
+/* BUTTON */
+.mv-book-btn {
+    background: #ff6f61;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.mv-book-btn:hover {
+    background: #ff4d4d;
+}
+
+/* OFFER SECTION */
+.mv-offer-section {
+    margin: 20px;
+    height: 220px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+
+    /* Background Image */
+    background: url('your-theatre-image.jpg') center/cover no-repeat;
+}
+
+/* OVERLAY (gradient like screenshot) */
+.mv-offer-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(0, 80, 80, 0.8),
+        rgba(255, 80, 80, 0.6)
+    );
+}
+
+/* CONTENT */
+.mv-offer-overlay {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* TITLE */
+.mv-offer-overlay h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+/* TEXT */
+.mv-offer-overlay p {
+    font-size: 14px;
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+/* BUTTON */
+.mv-offer-btn {
+    background: #ff6f61;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.mv-offer-btn:hover {
+    background: #ff4d4d;
+}
+
+/* GRID */
+.mv-rec-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* CARD */
+.mv-rec-card {
+    width: 260px;
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.mv-rec-card:hover {
+    transform: translateY(-5px);
+}
+
+/* IMAGE */
+.mv-rec-img {
+    position: relative;
+}
+
+.mv-rec-img img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+/* RATING */
+.mv-rating {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff4d4d;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 13px;
+}
+
+/* MOVIE NAME */
+.mv-rec-name {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* DETAILS */
+.mv-rec-details {
+    padding: 12px;
+    background: #f5f5f5;
+}
+
+/* META */
+.mv-rec-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+/* SHOWTIMES */
+.mv-rec-show {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.mv-rec-times {
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+/* BOTTOM */
+.mv-rec-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* PRICE */
+.mv-price {
+    color: #e53935;
+    font-weight: bold;
+}
+
+/* BUTTON */
+.mv-book-btn {
+    background: #ff6f61;
+    border: none;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.mv-book-btn:hover {
+    background: #ff4d4d;
+}

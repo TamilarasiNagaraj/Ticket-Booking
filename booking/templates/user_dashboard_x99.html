@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <link rel="stylesheet" href="{% static 'css/user.css' %}">
+<div class="dash-wrapper-x99">
+
+    <!-- LEFT PROFILE -->
+    <div class="dash-sidebar-x99">
+        <h3>Profile</h3>
+
+        <div class="dash-profile-x99">
+            <img src="{% static 'images/lady.avif' %}">
+            <p>{{ request.user.username }}</p>
+        </div>
+
+        <ul>
+            <li>My Bookings</li>
+            <li>Saved Trips</li>
+            <li>Notifications</li>
+            <li>Help & Support</li>
+            <li>Sign out</li>
+        </ul>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="dash-content-x99">
+
+        <h2>My Bookings</h2>
+
+        <!-- STATS -->
+        <div class="dash-stats-x99">
+            <div>Total Bookings <br><b>{{ total_x99 }}</b></div>
+            <div>Confirmed <br><b>{{ confirmed_x99 }}</b></div>
+            <div>Pending <br><b>{{ pending_x99 }}</b></div>
+        </div>
+
+        <!-- BOOKINGS -->
+        {% for b in bookings_x99 %}
+        <div class="dash-card-x99">
+
+            <!-- LEFT -->
+            <div class="dash-left-x99">
+
+                <!-- ICON -->
+                <div class="icon-x99">
+                    ✈
+                </div>
+
+                <div>
+                    <h3>{{ b.flight }}</h3>
+                    <p>{{ b.name }}</p>
+                    <p>{{ b.created_at }}</p>
+ 
+                    <button class="btn-download-x99">Download Ticket</button>
+                    <button class="btn-cancel-x99">Cancel Ticket</button>
+                </div>
+
+            </div>
+
+            <!-- RIGHT -->
+            <div class="dash-right-x99">
+                <span class="confirmed">Confirmed</span>
+                <p>₹{{ b.total_price }}</p>
+                <button class="btn-view-x99">View Details</button>
+            </div>
+
+        </div>
+        {% endfor %}
+
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}   
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/card.css' %}">
+<div style="width:400px; margin:80px auto; text-align:center; background:white; padding:30px; border-radius:10px;">
+
+    <h2>Confirm Booking</h2>
+
+    <h3>{{ item.name }}</h3>
+
+    <p>Price: ₹{{ item.price }}</p>
+    <p>Tax: ₹100</p>
+
+    <hr>
+
+   <h3>Total: ₹{{ total_price|default:"0" }}</h3>
+
+    <form method="POST" action="{% url 'common_payment' %}">
+        {% csrf_token %}
+
+        <input type="hidden" name="item_id" value="{{ item.id }}">
+        <input type="hidden" name="item_type" value="{{ item_type }}">
+        <input type="hidden" name="total_price" value="{{ total_price }}">
+
+        <button style="background:green; color:white; padding:10px; width:100%;" id="pay-btn">
+            Pay Now
+        </button>
+    </form>
+
+</div>
+
+
+
+{% endblock %}

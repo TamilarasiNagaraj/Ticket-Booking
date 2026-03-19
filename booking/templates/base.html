@@ -1,0 +1,174 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VetriHub</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- 🔷 TOP BAR -->
+<header class="topbar">
+  <div class="left">
+    <span><i class="fa fa-envelope"></i> info@ticketverse.com</span>
+    <span><i class="fa fa-phone"></i> +91-1234567890</span>
+  </div>
+
+  <div class="right">
+    <nav>
+      <a href="{% url 'home' %}"><i class="fa fa-home"></i> Home</a>
+      <a href="{% url 'contact' %}"><i class="fa fa-phone"></i> Contact</a>
+    </nav>
+
+    <div class="social">
+      <i class="fab fa-facebook-f"></i>
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-youtube"></i>
+      <i class="fab fa-twitter"></i>
+    </div>
+  </div>
+</header>
+
+<!-- 🔷 MAIN NAVBAR -->
+<header class="navbar">
+
+  <!-- LOGO -->
+  <div class="logo">
+    <img src="{% static 'images/log.png' %}" alt="VetriHub">
+  </div>
+
+  <!-- MENU -->
+ <ul class="menu">
+
+    <li>
+        <a href="{% url 'flights' %}">
+            <i class="fa fa-plane"></i> Flights
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'train' %}">
+            <i class="fa fa-train"></i> Train
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'bus' %}">
+            <i class="fa fa-bus"></i> Bus
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'movies' %}">
+            <i class="fa fa-film"></i> Movies
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'events' %}">
+            <i class="fa fa-calendar-check"></i> Events
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'sports' %}">
+            <i class="fa fa-trophy"></i> Sports
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'activities' %}">
+            <i class="fa fa-map"></i> Activities
+        </a>
+    </li>
+
+    <li>
+        <a href="{% url 'hotels' %}">
+            <i class="fa fa-hotel"></i> Hotels
+        </a>
+    </li>
+
+</ul>
+
+  <!-- RIGHT -->
+  <div class="nav-right">
+     <a href="{% url 'user_dashboard_x99' %}" class="booking" style="text-decoration: none;">My Bookings</a>
+  
+
+    {% if user.is_authenticated %}
+        <span>Hi,{{ request.user.username }}</span>
+        <a href="{% url 'logout' %}" class="login-btn">Logout</a>
+    {% else %}
+        <a href="{% url 'login' %}" class="login-btn">Login / Signup</a>
+    {% endif %}
+
+
+
+
+  </div>
+
+</header>
+{% load static %}
+
+
+<!-- 🔷 PAGE CONTENT -->
+{% block content %}
+{% endblock %}
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-container">
+
+        <!-- LEFT -->
+        <div class="footer-col footer-left">
+            <img src="{% static 'images/log.png' %}" alt="VetriHub" class="footer-logo">
+
+            <p>
+                Your one-stop platform for booking flights, trains, buses, movies,
+                events, sports tickets, and amazing experiences.
+            </p>
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul>
+                <li>Book Flights</li>
+                <li>Book Trains</li>
+                <li>Book Buses</li>
+                <li>Movie Tickets</li>
+                <li>Events</li>
+            </ul>
+        </div>
+
+        <!-- SUPPORT -->
+        <div class="footer-col">
+            <h3>Support</h3>
+            <ul>
+                <li>Help Center</li>
+                <li>Terms of Services</li>
+                <li>Privacy Policy</li>
+                <li>Cancellation Policy</li>
+                <li>Contact Us</li>
+            </ul>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="footer-col">
+            <h3>Contact</h3>
+
+            <p><i class="fa fa-phone"></i> +91-1234567890</p>
+            <p><i class="fa fa-envelope"></i> info@ticketverse.com</p>
+            <p><i class="fa fa-map-marker-alt"></i> 123 Booking Street, San Francisco, CA 94102</p>
+        </div>
+
+    </div>
+</footer>
+</body>
+</html>

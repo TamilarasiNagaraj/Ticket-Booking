@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    
+
+
+<div class="ps-card">
+
+    <!-- HEADER -->
+    <div class="ps-header">
+        <div class="ps-icon">
+            <i class="fa fa-check"></i>
+        </div>
+        <div>
+            <h2>Booking Confirmed!</h2>
+            <p>Your booking has been successfully confirmed</p>
+        </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="ps-content">
+
+        <div class="ps-row">
+            <span>Booking Reference</span>
+            <b>{{ booking.booking_ref }}</b>
+        </div>
+
+        <div class="ps-row">
+            <span>Booking Date</span>
+            <span>{{ booking.created_at|date:"F d, Y" }}</span>
+        </div>
+
+        <hr>
+
+        <!-- DETAILS -->
+        <h3>Booking Details</h3>
+
+        <div class="ps-details">
+
+            <div class="ps-item">
+                <i class="fa fa-plane"></i>
+                <div>
+                    <b>Flight to {{ flight.to_city }} ({{ flight.to_city }})</b>
+                    <p>{{ flight.name }}</p>
+                </div>
+            </div>
+
+            <div class="ps-item">
+                <i class="fa fa-calendar"></i>
+                <div>
+                    <b>{{ flight.date }}</b>
+                    <p>{{ flight.departure_time }} - {{ flight.arrival_time }}</p>
+                </div>
+            </div>
+
+            <div class="ps-item">
+                <i class="fa fa-map-marker-alt"></i>
+                <div>
+                    <b>Route</b>
+                    <p>{{ flight.from_city }} → {{ flight.to_city }}</p>
+                </div>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <!-- TOTAL -->
+        <div class="ps-total">
+            <span>Total Amount Paid</span>
+            <span class="ps-price">₹{{ booking.total_price }}</span>
+        </div>
+
+        <!-- BUTTON -->
+        <div class="ps-actions">
+            <a href="{% url 'download_ticket' booking.id %}" class="ps-btn">
+    <i class="fa fa-download"></i> Download Ticket
+</a>
+            <input type="text" class="ps-input">
+        </div>
+
+        <p class="ps-footer">
+            A confirmation email has been sent to your registered email address
+        </p>
+
+    </div>
+
+</div>
+<div class="ps-home">
+    <a href="{% url 'home' %}" class="ps-home-btn">Return to Home</a>
+</div>
+{% endblock %}

@@ -1,0 +1,272 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/card.css' %}">
+        <link rel="stylesheet" href="{% static 'css/movie.css' %}">
+<!-- SEARCH SECTION -->
+<section class="flight-search-section">
+
+    <!-- TEXT OVER IMAGE -->
+    <div class="search-overlay1">
+        <h2>Travel Comfortably by Bus </h2>
+        <p style="font-size: 11px;">Search and compare bus routes, Operators, and  schudele to find the best journey for your trip</p>
+    </div>
+
+    <!-- SEARCH BOX -->
+    <div class="search-box-container1">
+        <form method="GET" action="{% url 'movies' %}" class="search-box1">
+
+            <input type="text" name="from" placeholder="From" value="{{ request.GET.from }}">
+            <input type="text" name="to" placeholder="To" value="{{ request.GET.from }}">
+            <input type="date" name="date" value="{{ request.GET.to }}">
+
+            <button type="submit">Find Movies</button>
+
+      
+    </div>
+
+</section>
+
+<div class="mv-main">
+
+    <!-- LEFT FILTER -->
+    <div class="mv-left">
+
+        <div class="mv-filter-header">Filters</div>
+
+        <!-- Language -->
+        <div class="mv-section">
+            <h4>Language</h4>
+
+            <label><input type="radio" name="lang" checked> All</label>
+            <label><input type="radio" name="lang"> English</label>
+            <label><input type="radio" name="lang"> Tamil</label>
+            <label><input type="radio" name="lang"> Telugu</label>
+            <label><input type="radio" name="lang"> Malayalam</label>
+            <label><input type="radio" name="lang"> Hindi</label>
+        </div>
+
+        <!-- Format -->
+        <div class="mv-section">
+            <h4>Format</h4>
+
+            <label><input type="radio" name="format" checked> All</label>
+            <label><input type="radio" name="format"> 3D</label>
+        </div>
+
+        <!-- Sort -->
+        <div class="mv-section">
+            <h4>Sort by</h4>
+
+            <label><input type="radio" name="sort" checked> All</label>
+            <label><input type="radio" name="sort"> Release date: New to Old</label>
+            <label><input type="radio" name="sort"> Release date: Old to New</label>
+        </div>
+
+        <!-- Genre -->
+        <div class="mv-filter-block">
+    <h4>Genres</h4>
+
+    <label class="mv-checkbox">
+        <input type="checkbox">
+        <span></span>
+        Action
+    </label>
+
+    <label class="mv-checkbox">
+        <input type="checkbox">
+        <span></span>
+        Drama
+    </label>
+
+    <label class="mv-checkbox">
+        <input type="checkbox">
+        <span></span>
+        Thriller
+    </label>
+
+    <label class="mv-checkbox">
+        <input type="checkbox">
+        <span></span>
+        Sport
+    </label>
+
+    <label class="mv-checkbox">
+        <input type="checkbox">
+        <span></span>
+        Horror
+    </label>
+
+    <label class="mv-checkbox">
+        <input type="checkbox">
+        <span></span>
+        Comedy
+    </label>
+
+    <label class="mv-checkbox">
+        <input type="checkbox">
+        <span></span>
+        Adventure
+    </label>
+</div>
+
+    </div>
+
+
+    <!-- RIGHT CONTENT -->
+    <div class="mv-right">
+
+        <!-- NOW SHOWING -->
+        <h2 class="mv-title">Now Showing</h2>
+        <p class="mv-desc">Catch the latest blockbuster movies currently playing in theatres near you.</p>
+
+        <div class="mv-cards">
+
+            {% for movie in now_showing %}
+            <div class="mv-card">
+                <img src="{{ movie.image.url }}">
+                <div class="mv-card-info">
+                    <h3>{{ movie.name }}</h3>
+                    <span>{{ movie.language }}</span>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+
+        <!-- UPCOMING -->
+        <h2 class="mv-title">Upcoming Movie Releases</h2>
+        <p class="mv-desc">Stay updated with the most anticipated movies coming to theatres soon</p>
+
+        <div class="mv-cards">
+
+            {% for movie in upcoming %}
+            <div class="mv-card">
+               <img src="{{ movie.image.url }}">
+
+                <div class="mv-card-info">
+                    <h3>{{ movie.name }}</h3>
+                    <span>{{ movie.language }}</span>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="mv-genre-section">
+
+    <h2>Explore Movies by Genre</h2>
+
+    <div class="mv-genre-list">
+
+        <div class="mv-genre-pill">Action</div>
+        <div class="mv-genre-pill">Comedy</div>
+        <div class="mv-genre-pill">Thriller</div>
+        <div class="mv-genre-pill">Romance</div>
+        <div class="mv-genre-pill">Drama</div>
+
+    </div>
+
+</div>
+
+<div class="mv-rec-section">
+
+    <h2 class="mv-rec-title">Recommended Movies</h2>
+
+    <div class="mv-rec-grid">
+
+        {% for movie in recommended %}
+        <div class="mv-rec-card">
+
+            <!-- IMAGE -->
+            <div class="mv-rec-img">
+                <img src="{{ movie.image.url }}">
+
+                <!-- RATING -->
+                <div class="mv-rating">4 ⭐</div>
+
+                <!-- MOVIE NAME -->
+                <div class="mv-rec-name">{{ movie.name }}</div>
+            </div>
+
+            <!-- DETAILS -->
+            <div class="mv-rec-details">
+
+                <div class="mv-rec-meta">
+                    <span>⏱ {{ movie.duration }}</span>
+                    <span>{{ movie.language }}</span>
+                </div>
+
+                <p class="mv-rec-show">Showtimes</p>
+
+                <div class="mv-rec-times">
+                    {{ movie.showtimes }}
+                </div>
+
+                <div class="mv-rec-bottom">
+                    <span class="mv-price">₹{{ movie.price }}</span>
+                    <button class="mv-book-btn">Book Ticket</button>
+                </div>
+
+            </div>
+
+        </div>
+        {% endfor %}
+
+    </div>
+
+</div>
+<div class="mv-offer-section">
+
+    <div class="mv-offer-overlay">
+
+        <h2>Exclusive Movie Offers</h2>
+
+        <p>
+            Get exciting discounts on movie tickets and enjoy special deals  
+            on snacks and combo packages at partner theatres.
+        </p>
+
+        <button class="mv-offer-btn">Book Movie Tickets</button>
+
+    </div>
+
+</div>
+<script>
+document.querySelectorAll('.duration-box').forEach(item => {
+    item.addEventListener('click', function() {
+        const input = this.previousElementSibling;
+        input.checked = true;
+        this.closest('form').submit();
+    });
+});
+
+document.querySelectorAll('.days-container span').forEach(item => {
+    item.addEventListener('click', function() {
+        const input = this.previousElementSibling;
+        input.checked = !input.checked;
+        this.closest('form').submit();
+    });
+});
+document.querySelectorAll('input').forEach(item => {
+    item.addEventListener('change', function(){
+        this.closest('form').submit();
+    });
+});
+const range = document.getElementById("priceRange");
+const value = document.getElementById("priceValue");
+
+range.addEventListener("input", function() {
+    value.innerText = this.value;
+});
+</script>
+<!-- THEN LOAD JS -->
+<script src="{% static 'js/slider.js' %}"></script>
+{% endblock %}

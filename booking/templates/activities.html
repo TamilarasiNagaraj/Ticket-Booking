@@ -1,0 +1,246 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/card.css' %}">
+        <link rel="stylesheet" href="{% static 'css/activity.css' %}">
+<!-- SEARCH SECTION -->
+<section class="flight-search-section">
+
+    <!-- TEXT OVER IMAGE -->
+    <div class="search-overlay1">
+        <h2>Discover Fun Activities Near You</h2>
+        <p style="font-size: 11px;">Book exciting experiences including adventure sports, theme parks, indoor games, and family activities.</p>
+     
+    </div>
+ <div>
+    <button type="submit" class="mv-sports-btn" style="bottom:60px">Explore Sports Events</button>
+ </div>
+    </section>
+<br>
+<br>
+<div class="mv-sports-section">
+
+    <!-- LEFT FILTER -->
+    <div class="mv-sports-left">
+
+        <div class="mv-filter-header">Filters</div>
+
+        <!-- Price -->
+        <div class="mv-sports-block">
+            <h4>Price Range</h4>
+            <input type="range" min="200" max="3000">
+            <div class="mv-price-range">
+                <span>₹200</span>
+                <span>₹3,000</span>
+            </div>
+        </div>
+
+        <!-- Sports Type -->
+        <div class="mv-sports-block">
+            <h4>Sports Type</h4>
+            <label><input type="radio" checked> All</label>
+            <label><input type="radio"> Adveture</label>
+            <label><input type="radio"> Theme Parks</label>
+            <label><input type="radio"> Indoor Games</label>
+            <label><input type="radio"> Water Sports</label>
+            <label><input type="radio"> Family Activities</label>
+        </div>
+
+        <!-- City -->
+        <div class="mv-sports-block">
+            <h4>City</h4>
+            <label><input type="radio" checked> Chennai</label>
+            <label><input type="radio"> Bangalore</label>
+            <label><input type="radio"> Hyderabad</label>
+            <label><input type="radio"> Delhi</label>
+        </div>
+
+        <!-- Date -->
+        <div class="mv-sports-block">
+            <h4>Date</h4>
+            <label><input type="radio" checked> Today</label>
+            <label><input type="radio"> Tomorrow</label>
+            <label><input type="radio"> This Weekend</label>
+            <label><input type="radio"> This Week</label>
+            <label><input type="radio"> This Month</label>
+        </div>
+
+    </div>
+
+
+    <!-- RIGHT CONTENT -->
+   
+<div class="mv-activity-section">
+
+    <h2 class="mv-activity-title">Top Activities</h2>
+
+    <div class="mv-activity-grid">
+
+        <!-- CARD 1 -->
+        <div class="mv-activity-card">
+            <img src="/static/images/zip.jpg">
+
+            <div class="mv-activity-info">
+                <h3>Skyline Zipline Adventure</h3>
+
+                <p class="mv-location">📍 Munnar</p>
+
+                <div class="mv-activity-meta">
+                    <span>⭐ 4.3</span>
+                    <span class="mv-price">₹1,200</span>
+                </div>
+
+                <button class="mv-activity-btn">Book Now</button>
+            </div>
+        </div>
+
+
+        <!-- CARD 2 -->
+        <div class="mv-activity-card">
+            <img src="/static/images/wond.webp">
+
+            <div class="mv-activity-info">
+                <h3>Wonderla Amusement Park</h3>
+
+                <p class="mv-location">📍 Bangalore</p>
+
+                <div class="mv-activity-meta">
+                    <span>⭐ 4.3</span>
+                    <span class="mv-price">₹1,450</span>
+                </div>
+
+                <button class="mv-activity-btn">Book Now</button>
+            </div>
+        </div>
+
+
+        <!-- CARD 3 -->
+        <div class="mv-activity-card">
+            <img src="/static/images/c5.png">
+
+            <div class="mv-activity-info">
+                <h3>River Kayaking Experience</h3>
+
+                <p class="mv-location">📍 Coorg</p>
+
+                <div class="mv-activity-meta">
+                    <span>⭐ 4.3</span>
+                    <span class="mv-price">₹950</span>
+                </div>
+
+                <button class="mv-activity-btn">Book Now</button>
+            </div>
+        </div>
+<!-- CARD 4 -->
+<div class="mv-activity-card">
+    <img src="/static/images/bow.webp">
+
+    <div class="mv-activity-info">
+        <h3>Bowling & Arcade Gaming</h3>
+
+        <p class="mv-location">📍 Chennai</p>
+
+        <div class="mv-activity-meta">
+            <span>⭐ 4.3</span>
+            <span class="mv-price">₹500</span>
+        </div>
+
+        <button class="mv-activity-btn">Book Now</button>
+    </div>
+</div>
+
+
+<!-- CARD 5 -->
+<div class="mv-activity-card">
+    <img src="/static/images/der.avif">
+
+    <div class="mv-activity-info">
+        <h3>Go Kart Racing Experience</h3>
+
+        <p class="mv-location">📍 Chennai</p>
+
+        <div class="mv-activity-meta">
+            <span>⭐ 4.3</span>
+            <span class="mv-price">₹700</span>
+        </div>
+
+        <button class="mv-activity-btn">Book Now</button>
+    </div>
+</div>
+
+
+<!-- CARD 6 -->
+<div class="mv-activity-card">
+    <img src="/static/images/str.jpg">
+
+    <div class="mv-activity-info">
+        <h3>Indoor Rock Climbing</h3>
+
+        <p class="mv-location">📍 Bangalore</p>
+
+        <div class="mv-activity-meta">
+            <span>⭐ 4.3</span>
+            <span class="mv-price">₹850</span>
+        </div>
+
+        <button class="mv-activity-btn">Book Now</button>
+    </div>
+</div>
+    </div>
+
+</div>
+</div>
+
+</div>
+
+<div class="mv-feature-exp-section">
+
+    <h2 class="mv-feature-exp-title">Featured Experience</h2>
+
+    <div class="mv-feature-exp-banner">
+
+        <img src="/static/images/swiss.png" class="mv-feature-exp-img">
+
+        <!-- RIGHT CONTENT -->
+        <div class="mv-feature-exp-content">
+
+            <h3>Hot Air Balloon Adventure</h3>
+
+            <p class="mv-exp-location">Hampi | Hampi</p>
+
+            <p class="mv-exp-desc">
+                Enjoy breathtaking aerial views as you float above stunning landscapes in a 
+                peaceful hot air balloon ride.
+            </p>
+
+            <div class="mv-exp-buttons">
+                <button class="mv-btn-green">View Details</button>
+                <button class="mv-btn-red">Book Experience</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="mv-activity-cta-section">
+
+    <div class="mv-activity-cta-overlay">
+
+        <h2>Ready for Your Next Adventure?</h2>
+
+        <p>
+            Explore exciting activities and create unforgettable experiences with your friends and family.
+        </p>
+
+        <button class="mv-activity-cta-btn">Book Activities</button>
+
+    </div>
+
+</div>
+<!-- THEN LOAD JS -->
+<script src="{% static 'js/slider.js' %}"></script>
+{% endblock %}

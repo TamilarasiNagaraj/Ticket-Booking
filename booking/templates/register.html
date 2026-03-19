@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- LOGIN SECTION -->
+<section class="signup-section">
+
+    <!-- LEFT IMAGE -->
+    <div class="signup-left">
+        <img src="{% static 'images/login.png' %}" alt="travel">
+    </div>
+
+    <!-- RIGHT FORM -->
+    <div class="signup-card">
+
+        <h2>Create Account</h2>
+        <p>Start your booking journey</p>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <!-- NAME -->
+            <label>Full Name</label>
+            <div class="input-box">
+                <i class="fa fa-user"></i>
+                <input type="text" name="username" placeholder="John Doe" required>
+            </div>
+
+            <!-- EMAIL -->
+            <label>Email Address</label>
+            <div class="input-box">
+                <i class="fa fa-envelope"></i>
+                <input type="email" name="email" placeholder="johndae@gmail.com" required>
+            </div>
+
+            <!-- PASSWORD -->
+            <label>Password</label>
+            <div class="input-box">
+                <i class="fa fa-lock"></i>
+                <input type="password" name="password" placeholder="Enter 6 digit password" required>
+            </div>
+
+            <!-- BUTTON -->
+            <button type="submit" class="btn">Sign Up</button>
+
+            <!-- LOGIN LINK -->
+            <p class="login-text">
+                Already have an account?
+                <a href="{% url 'login' %}">Login</a>
+            </p>
+
+            <!-- MESSAGE -->
+            {% for message in messages %}
+                <p class="error">{{ message }}</p>
+            {% endfor %}
+
+            <hr>
+
+            <small>
+                By continuing, you agree to BookAll's Terms of Service and Privacy Policy
+            </small>
+
+        </form>
+
+    </div>
+
+</section>
+
+{% endblock %}

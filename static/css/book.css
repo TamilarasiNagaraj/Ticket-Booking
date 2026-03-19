@@ -1,0 +1,313 @@
+body {
+    background: url("../images/round.png");
+    background-size: cover;
+    font-family: Arial;
+}
+
+/* MAIN */
+.main-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* CARD */
+.card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+/* WIDTH */
+.left-section { width: 65%; }
+.right-section { width: 35%; }
+
+/* TITLE */
+.card-title {
+    background: #ff3b30;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* ROW */
+.row {
+    display: flex;
+    gap: 10px;
+}
+
+/* INPUT */
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+}
+
+/* ICON INPUT */
+.icon-input {
+    position: relative;
+}
+
+.icon-input i {
+    position: absolute;
+    left: 10px;
+    top: 12px;
+    color: gray;
+}
+
+.icon-input input,
+.icon-input select {
+    padding-left: 35px;
+}
+
+/* GENDER */
+.gender {
+    display: flex;
+    gap: 10px;
+}
+
+.gender button {
+    flex: 1;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    background: #b3b0b0;
+    color: white;
+}
+
+x
+
+/* BUTTON */
+.add-btn {
+    background: #ff6b5c;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    margin-top: 10px;
+}
+
+/* RIGHT SIDE */
+.airline-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.airline-row img{
+    height: 40px;
+    width:100px;
+}
+.route {
+    display: flex;
+    justify-content: space-between;
+}
+
+.discount {
+    display: flex;
+    margin: 10px 0;
+}
+
+.discount input {
+    flex: 1;
+}
+
+.discount button {
+    background: red;
+    color: white;
+    border: none;
+    padding: 10px;
+}
+
+.price1 p {
+    display: flex;
+    justify-content: space-between;
+    color:black;
+}
+
+.pay-btn {
+    width: 100%;
+    background: teal;
+    color: white;
+    padding: 12px;
+    border-radius: 25px;
+    border: none;
+    margin-top: 10px;
+}
+
+/* MODAL BACKGROUND */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+}
+
+/* BOX */
+.modal-content {
+    background: #fff;
+    width: 60%;
+    margin: 5% auto;
+    border-radius: 15px;
+    display: flex;
+    padding: 20px;
+    position: relative;
+}
+
+/* CLOSE */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* LEFT MENU */
+.payment-left {
+    width: 30%;
+    border-right: 1px solid #ddd;
+}
+
+.pay-option {
+    padding: 15px;
+    cursor: pointer;
+}
+
+.pay-option.active {
+    background: #ff3b30;
+    color: white;
+    border-radius: 8px;
+}
+
+/* RIGHT */
+.payment-right {
+    width: 70%;
+    padding-left: 20px;
+}
+
+.payment-right input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+/* ROW */
+.row {
+    display: flex;
+    gap: 10px;
+}
+
+/* BUTTON */
+.pay-now-btn {
+    background: #ff6b5c;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    border: none;
+    float: right;
+}
+.passenger-box {
+    margin-top: 10px;
+}
+.modal {
+    display:none;
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(0,0,0,0.6);
+}
+
+.modal-box {
+    background:white;
+    width:60%;
+    margin:5% auto;
+    border-radius:15px;
+    display:flex;
+    padding:20px;
+    position:relative;
+}
+
+.close {
+    position:absolute;
+    top:10px;
+    right:15px;
+    cursor:pointer;
+}
+
+/* LEFT */
+.left-menu {
+    width:30%;
+    border-right:1px solid #ddd;
+}
+
+.menu {
+    padding:15px;
+    cursor:pointer;
+}
+
+.menu.active {
+    background:#ff3b30;
+    color:white;
+    border-radius:8px;
+}
+
+/* RIGHT */
+.right-content {
+    width:70%;
+    padding-left:20px;
+}
+
+.tab {
+    display:none;
+}
+
+.tab.active {
+    display:block;
+}
+
+input {
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+.row {
+    display:flex;
+    gap:10px;
+}
+
+/* UPI */
+.upi-box {
+    padding:12px;
+    border:1px solid #ddd;
+    margin-bottom:10px;
+    border-radius:8px;
+}
+
+.upi-box.active {
+    background:#ff3b30;
+    color:white;
+}
+
+/* BUTTON */
+.pay-now {
+    background:#ff6b5c;
+    color:white;
+    padding:12px 25px;
+    border:none;
+    border-radius:25px;
+    float:right;
+}

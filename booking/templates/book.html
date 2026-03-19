@@ -1,0 +1,343 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/book.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- HEADER -->
+<div class="top-header">
+    <h2>Book Your Ticket</h2>
+</div>
+
+<!-- STEP -->
+<div class="step-card">
+    <p>Please Fill In With Valid Information</p>
+
+    <div class="step-container">
+        <div class="airline">
+            <img src="{{ flight.logo.url }}" height="40">
+        </div>
+
+        <div class="steps">
+            <div class="step active">1</div>
+            <div class="line"></div>
+            <div class="step">2</div>
+            <div class="line"></div>
+            <div class="step">3</div>
+        </div>
+    </div>
+
+    <div class="labels">
+        <span>Guest Information</span>
+        <span>Payment</span>
+        <span>Confirmation</span>
+    </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="main-container">
+
+<form method="POST" style="display:flex; width:100%; gap:20px;">
+{% csrf_token %}
+
+<!-- LEFT -->
+<div class="card left-section">
+
+    <h3 class="card-title">Passenger Info</h3>
+
+    <!-- CLASS -->
+    <div class="form-group icon-input">
+        <i class="fa fa-plane"></i>
+        <select name="class">
+            <option>Select Class</option>
+            <option>Class A</option>
+            <option>Class B</option>
+            <option>Class C</option>
+            <option>Class D</option>
+        </select>
+    </div>
+
+    <!-- NAME -->
+    <div class="row">
+        <div id="passengerContainer">
+
+    <!-- Passenger 1 -->
+    <div class="passenger-box row">
+
+        <div class="form-group icon-input">
+            <i class="fa fa-user"></i>
+            <select>
+                <option>Passenger 1</option>
+            </select>
+        </div>
+
+        <input type="text" name="name" placeholder="First Name*" required>
+        <input type="text" placeholder="Last Name*">
+    </div>
+    </div>
+    </div>
+
+    <!-- GENDER + DOB -->
+    <div class="row">
+        <div class="gender-box">
+            <label>Select Gender</label>
+            <div class="gender">
+                <button type="button" class="active">👦 Male</button>
+                <button type="button">👧 Female</button>
+            </div>
+        </div>
+
+        <div class="form-group icon-input">
+            <label>Date of Birth</label>
+            <i class="fa fa-calendar"></i>
+            <input type="text" placeholder="DD/MM/YYYY">
+        </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="row">
+        <div class="form-group icon-input">
+            <i class="fa fa-globe"></i>
+            <input type="text" placeholder="Nationality">
+        </div>
+
+        <div class="form-group icon-input">
+            <i class="fa fa-phone"></i>
+            <input type="text" name="phone" placeholder="Phone Number">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group icon-input">
+            <i class="fa fa-envelope"></i>
+            <input type="email" name="email" placeholder="Email">
+        </div>
+
+        <div class="form-group icon-input">
+            <i class="fa fa-map-marker"></i>
+            <input type="text" placeholder="Address">
+        </div>
+    </div>
+
+    <div class="row">
+        <input type="text" placeholder="Post Code">
+        <input type="text" placeholder="Passport No">
+    </div>
+
+    <!-- REQUEST -->
+    <h4>Request Option</h4>
+
+    <select><option>Select Meal Type</option>
+    <option>Veg</option>
+<option>Non-Veg</option></select>
+    <select>
+        <option>Select Luggage Type</option>
+        <option>Luggage</option></select>
+    <select>
+         <option>Select Seat Type</option>
+         <option>Wheelchair</option></select>
+
+   <button type="button" class="add-btn" onclick="addPassenger()">
+    Add Passenger
+</button>
+
+</div>
+
+<!-- RIGHT -->
+<div class="card right-section">
+
+    <h3 class="card-title">Booking Info</h3>
+
+    <div class="airline-row">
+        <img src="{{ flight.logo.url }}">
+        <span>{{ flight.name }}</span>
+    </div>
+
+    <hr>
+
+    <div class="route">
+        <div>
+            <b>Departure</b>
+            <p>{{ flight.from_city }}</p>
+            <p>{{ flight.departure_time }}</p>
+        </div>
+
+        <div>
+            <b>Arrival</b>
+            <p>{{ flight.to_city }}</p>
+            <p>{{ flight.arrival_time }}</p>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- COUPON -->
+    <div class="discount">
+        <input type="text" id="coupon" placeholder="Enter Code">
+        <button type="button" onclick="applyCoupon()">→</button>
+    </div>
+
+    <!-- PRICE -->
+    <div class="price1">
+        <p>Price <span id="price">₹{{ flight.price }}</span></p>
+<p>Tax <span id="tax">₹450</span></p>
+<p>Discount <span id="discount">₹0</span></p>
+<p><b>Total</b> <span id="total"></span></p>
+    </div>
+
+    <input type="hidden" name="total_price" id="total_price">
+
+    <button type="button" class="pay-btn" onclick="openModal()">
+    Continue Payment
+</button>
+</div>
+
+</form>
+</div>
+<div id="paymentModal" class="modal">
+
+    <div class="modal-box">
+
+        <!-- CLOSE -->
+        <span class="close" onclick="closeModal()">✖</span>
+
+        <!-- LEFT SIDE -->
+        <div class="left-menu">
+            <div class="menu active" onclick="showTab('card', this)">Credit Card</div>
+            <div class="menu" onclick="showTab('net', this)">Net Banking</div>
+            <div class="menu" onclick="showTab('upi', this)">UPI</div>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="right-content">
+
+            <!-- CARD -->
+            <div id="card" class="tab active">
+                <input type="text" placeholder="Card Number">
+                <div class="row">
+                    <input type="text" placeholder="MM/YYYY">
+                    <input type="text" placeholder="CVV">
+                </div>
+            </div>
+
+            <!-- NET BANKING -->
+            <div id="net" class="tab">
+                <input type="text" placeholder="Account Number">
+                <input type="text" placeholder="Account Holder Name">
+                <input type="text" placeholder="Bank Name">
+            </div>
+
+            <!-- UPI -->
+            <div id="upi" class="tab">
+                <div class="upi-box active">Google Pay</div>
+                <div class="upi-box">PhonePe</div>
+                <div class="upi-box">Paytm</div>
+            </div>
+
+            <!-- FORM SUBMIT -->
+            <form method="POST" action="{% url 'payment' %}">
+                {% csrf_token %}
+                <input type="hidden" name="flight_id" value="{{ flight.id }}">
+                <input type="hidden" name="total_price" id="final_total_price">
+
+                <button class="pay-now">Pay Now</button>
+            </form>
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+
+function openModal(){
+    document.getElementById("paymentModal").style.display="block";
+}
+
+function closeModal(){
+    document.getElementById("paymentModal").style.display="none";
+}
+
+// SWITCH TABS
+function showTab(tabId, el){
+
+    // remove active menu
+    document.querySelectorAll('.menu').forEach(m=>m.classList.remove('active'));
+    el.classList.add('active');
+
+    // hide all tabs
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+
+    // show selected
+    document.getElementById(tabId).classList.add('active');
+}
+</script>
+<script>
+let basePrice = parseInt("{{ flight.price }}");
+let tax = 450;
+let discount = 0;
+let passengerCount = 1;   // 🔥 IMPORTANT
+</script>
+<script>
+function addPassenger() {
+
+    passengerCount++;   // 🔥 increase passenger
+
+    let container = document.getElementById("passengerContainer");
+
+    let newBox = document.createElement("div");
+    newBox.classList.add("passenger-box");
+
+    newBox.innerHTML = `
+        <input type="text" name="name[]" placeholder="First Name*">
+        <input type="text" name="lastname[]" placeholder="Last Name*">
+    `;
+
+    container.appendChild(newBox);
+
+    updateTotal();   // 🔥 VERY IMPORTANT
+}
+</script>
+
+<script>
+
+
+function updateTotal(){
+
+    let totalPrice = basePrice * passengerCount;
+
+    let total = totalPrice + tax - discount;
+
+    document.getElementById("price").innerText = "₹" + totalPrice;
+    document.getElementById("discount").innerText = "₹" + discount;
+    document.getElementById("total").innerText = "₹" + total;
+
+    document.getElementById("final_total_price").value = total;
+}
+// 🔥 COUPON FIX
+function applyCoupon(){
+
+    let code = document.getElementById("coupon").value.trim();
+
+    console.log("Coupon Entered:", code);  // DEBUG
+
+    if(code === "SAVE100"){
+        discount = 100;
+    }
+    else if(code === "SAVE200"){
+        discount = 200;
+    }
+    else{
+        discount = 0;
+        alert("Invalid Coupon");
+    }
+
+    updateTotal();
+}
+
+// LOAD
+updateTotal();
+</script>
+<script src="{% static 'js/slider.js' %}"></script>
+{% endblock %}

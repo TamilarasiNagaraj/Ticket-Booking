@@ -1,0 +1,393 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="hero-container">
+
+  <!-- LEFT ARROW -->
+  <div class="arrow left" onclick="prevSlide()">❮</div>
+
+  <!-- SLIDER -->
+  <div class="hero-slide" id="heroSlide">
+
+
+
+    <div class="overlay">
+      <h2>Book Everything, Everywhere</h2>
+      <p>From flights to movies, events to experiences - all in one place</p>
+
+      <div class="tabs">
+
+  <a href="{% url 'flights' %}" class="tab" style="text-decoration: none;">
+    <i class="fa fa-plane"></i> Flights
+  </a>
+
+  <a href="{% url 'train' %}" class="tab" style="text-decoration: none;">
+    <i class="fa fa-train"></i> Train
+  </a>
+
+  <a href="{% url 'bus' %}" class="tab" style="text-decoration: none;">
+    <i class="fa fa-bus"></i> Bus
+  </a>
+
+  <a href="{% url 'movies' %}" class="tab" style="text-decoration: none;">
+    <i class="fa fa-film"></i> Movies
+  </a>
+
+  <a href="{% url 'events' %}" class="tab" style="text-decoration: none;">
+    <i class="fa fa-calendar"></i> Events
+  </a>
+
+</div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT ARROW -->
+  <div class="arrow right" onclick="nextSlide()">❯</div>
+
+
+  <div class="search-wrapper">
+  <div class="search-box">
+
+    <input type="text" placeholder="From">
+    <input type="text" placeholder="To">
+ <input type="date">
+    <button>Find Event</button>
+
+  </div>
+</div>
+</div>
+<!-- DEFINE IMAGES FIRST -->
+<script>
+const images = [
+  "{% static 'images/flight.png' %}",
+  "{% static 'images/train.png' %}",
+  "{% static 'images/entr.png' %}",
+  "{% static 'images/footbal.png' %}",
+  "{% static 'images/popcorn.webp' %}"
+];
+
+</script>
+
+<section class="services">
+  <h2>What would you like to book?</h2>
+  <br>
+  <p style="font-size: 11px;">Choose from our wide range of services</p>
+  <br>
+
+  <div class="card-container">
+   {% for category in categories %}
+
+<a href="{% if category.name == 'Flights' %}
+            {% url 'flights' %}
+         {% elif category.name == 'Trains' %}
+            {% url 'train' %}
+         {% elif category.name == 'Bus' %}
+            {% url 'bus' %}
+         {% elif category.name == 'Movies' %}
+            {% url 'movies' %}
+         {% elif category.name == 'Events' %}
+            {% url 'events' %}
+            {% elif category.name == 'Sports' %}
+            {% url 'sports' %}
+            {% elif category.name == 'Activity' %}
+            {% url 'activities' %}
+            {% elif category.name == 'Hotels' %}
+            {% url 'hotels' %}
+         {% endif %}" class="card-link">
+
+  <div class="card">
+    <img src="{{ category.image.url }}" alt="">
+    <div class="icon">{{ category.icon }}</div>
+  </div>
+
+</a>
+
+{% endfor %}
+  </div>
+</section>
+<section class="about-section">
+
+  <div class="about-container">
+
+    <!-- LEFT IMAGE -->
+    <div class="about-image">
+      <img src="{% static 'images/abt.png' %}" alt="about">
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="about-content">
+      <h5>About TicketVerse</h5>
+      <h2>Your All-in-One Platform for Travel, Events, and Experiences</h2>
+
+      <p>
+        TicketVerse makes booking easy and convenient by bringing flights, trains,
+        buses, hotels, movies, events, sports, and activities into one simple platform.
+      </p>
+
+      <div class="features">
+        <p>✔ Easy Booking</p>
+        <p>✔ Secure Payments</p>
+        <p>✔ Wide Selection</p>
+        <p>✔ Instant Confirmation</p>
+      </div>
+
+      <button class="about-btn">About</button>
+    </div>
+<br>
+
+</section>
+<section class="trending-section">
+  <h2>Trending Experiences</h2>
+  <p class="subtitle">
+    Discover the most popular destinations and events people are booking right now.
+  </p>
+<br>
+  <div class="slider">
+    <div class="slide-track">
+
+      {% for item in trending %}
+      <div class="trendcard">
+        <img src="{{ item.image.url }}" alt="">
+
+        <div class="trendcard-content">
+          <div class="top-row">
+            <span>📅 {{ item.date }} {% if item.time %}| {{ item.time }}{% endif %}</span>
+
+            <div class="rating">
+              {% for i in "12345" %}
+                {% if forloop.counter <= item.rating %}
+                  ⭐
+                {% else %}
+                  ☆
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+
+          <p class="category">
+           {{ item.category }} {% if item.location %}| {{ item.location }}{% endif %}
+          </p>
+
+          <h3>{{ item.title }}</h3>
+
+          <div class="trendcard-footer">
+            <span class="price">₹{{ item.price }}</span>
+            <button>Book Now</button>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+      <!-- DUPLICATE FOR SMOOTH LOOP -->
+      {% for item in trending %}
+      <div class="trendcard">
+        <img src="{{ item.image.url }}" alt="">
+
+        <div class="trendcard-content">
+          <div class="top-row">
+            <span>📅 {{ item.date }} {% if item.time %}| {{ item.time }}{% endif %}</span>
+
+            <div class="rating">
+              {% for i in "12345" %}
+                {% if forloop.counter <= item.rating %}
+                  ⭐
+                {% else %}
+                  ☆
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+
+          <p class="category">
+           {{ item.category }} {% if item.location %}| {{ item.location }}{% endif %}
+          </p>
+
+          <h3>{{ item.title }}</h3>
+
+          <div class="trendcard-footer">
+            <span class="price">₹{{ item.price }}</span>
+            <button>Book Now</button>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+
+    </div>
+  </div>
+</section>
+<section class="destination-section">
+  <h2>Trending Destinations</h2>
+
+  <div class="destination-cards">
+
+    {% for dest in destinations %}
+    <div class="destination-card">
+
+      <div class="img-box">
+        <img src="{{ dest.image.url }}" alt="">
+        
+        {% if dest.is_hot %}
+        <span class="badge">🔥 Hot</span>
+        {% endif %}
+      </div>
+
+      <div class="dest-content">
+
+        <div class="title-row">
+          <h3>{{ dest.name }}, {{ dest.country }}</h3>
+          <span class="rating">⭐ {{ dest.rating }}</span>
+        </div>
+
+        <p class="location">📍 {{ dest.description }}</p>
+
+        <div class="dest-footer">
+          <span class="price">₹{{ dest.price }}</span>
+          <button>Book Now</button>
+        </div>
+
+      </div>
+
+    </div>
+    {% endfor %}
+
+  </div>
+</section>
+
+{% load static %}
+
+<section class="events-section">
+  <h2>Popular Events & Movies</h2>
+
+  <div class="events-cards">
+
+    <!-- Card 1 -->
+    <div class="events-card">
+      <img src="{% static 'images/mov.jpg' %}" alt="movie">
+
+      <div class="events-overlay">
+        <span class="events-rating">⭐ 4.3</span>
+        <h3>Epic Adventure</h3>
+        <p>Movie | Adventure | 12/03/2026 | 6:30 PM</p>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="events-card">
+      <img src="{% static 'images/musi.webp' %}" alt="concert">
+
+      <div class="events-overlay">
+        <span class="events-rating">⭐ 4.3</span>
+        <h3>Music Festival Live</h3>
+        <p>Concert | 12/03/2026 | 6:30 PM</p>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="events-card">
+      <img src="{% static 'images/finaa.webp' %}" alt="sports">
+
+      <div class="events-overlay">
+        <span class="events-rating">⭐ 4.3</span>
+        <h3>Championship Finals</h3>
+        <p>Sports | 12/03/2026 | 6:30 PM</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="why-section">
+  <div class="why-container">
+
+    <!-- LEFT IMAGE -->
+    <div class="why-image">
+      <img src="{% static 'images/ho.png' %}" alt="">
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="why-content">
+      <h4>Why Choose TicketVerse</h4>
+      <h2>
+        A smarter way to book travel, events, and entertainment all in one place.
+      </h2>
+
+      <div class="why-features">
+
+        <div class="featuresec">
+          <div class="icon1">🎟️</div>
+          <div>
+            <h3>All Tickets in One Place</h3>
+            <p>Book travel, sports, movies, and events easily.</p>
+          </div>
+        </div>
+
+        <div class="featuresec">
+          <div class="icon1">📱</div>
+          <div>
+            <h3>Instant Booking</h3>
+            <p>Fast and secure ticket confirmation.</p>
+          </div>
+        </div>
+
+        <div class="featuresec">
+          <div class="icon1">💰</div>
+          <div>
+            <h3>Best Price Guarantee</h3>
+            <p>Find the best deals on tickets and events.</p>
+          </div>
+        </div>
+
+        <div class="featuresec">
+          <div class="icon1">🎧</div>
+          <div>
+            <h3>24/7 Customer Support</h3>
+            <p>We're here to help anytime.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="testimonial-slider">
+  <h2 style="text-align:center; margin-bottom:20px;color: white;">Happy Customers</h2>
+
+  <div class="testimonial-track">
+
+    {% for t in testimonials %}
+    <div class="testimonial-card">
+
+      <div class="profile">
+        {% if t.image %}
+          <img src="{{ t.image.url }}">
+        {% else %}
+          <img src="{% static 'images/lady.avif' %}">
+        {% endif %}
+      </div>
+
+      <p class="review">"{{ t.review }}"</p>
+
+      <h4>{{ t.name }}</h4>
+
+      {% if t.location %}
+        <span>{{ t.location }}</span>
+      {% endif %}
+
+    </div>
+    {% empty %}
+      <p style="color: white;">No testimonials yet</p>
+    {% endfor %}
+
+  </div>
+</section>
+
+  
+<!-- THEN LOAD JS -->
+<script src="{% static 'js/slider.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,264 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/card.css' %}">
+        <link rel="stylesheet" href="{% static 'css/sports.css' %}">
+<!-- SEARCH SECTION -->
+<section class="flight-search-section">
+
+    <!-- TEXT OVER IMAGE -->
+    <div class="search-overlay1">
+        <h2>Book Tickets for Live Sports</h2>
+        <p style="font-size: 11px;">Experience the thrill of live sports events. Find tickets for cricket, football, basketball, and more happening near you</p>
+     
+    </div>
+ <div>
+    <button type="submit" class="mv-sports-btn" style="bottom:60px">Explore Sports Events</button>
+ </div>
+    </section>
+<br>
+<br>
+<div class="mv-sports-section">
+
+    <!-- LEFT FILTER -->
+    <div class="mv-sports-left">
+
+        <div class="mv-filter-header">Filters</div>
+
+        <!-- Price -->
+        <div class="mv-sports-block">
+            <h4>Price Range</h4>
+            <input type="range" min="200" max="3000">
+            <div class="mv-price-range">
+                <span>₹200</span>
+                <span>₹3,000</span>
+            </div>
+        </div>
+
+        <!-- Sports Type -->
+        <div class="mv-sports-block">
+            <h4>Sports Type</h4>
+            <label><input type="radio" checked> All</label>
+            <label><input type="radio"> Cricket</label>
+            <label><input type="radio"> Football</label>
+            <label><input type="radio"> Basketball</label>
+            <label><input type="radio"> Tennis</label>
+            <label><input type="radio"> Kabaddi</label>
+        </div>
+
+        <!-- City -->
+        <div class="mv-sports-block">
+            <h4>City</h4>
+            <label><input type="radio" checked> Chennai</label>
+            <label><input type="radio"> Bangalore</label>
+            <label><input type="radio"> Hyderabad</label>
+            <label><input type="radio"> Delhi</label>
+        </div>
+
+        <!-- Date -->
+        <div class="mv-sports-block">
+            <h4>Date</h4>
+            <label><input type="radio" checked> Today</label>
+            <label><input type="radio"> Tomorrow</label>
+            <label><input type="radio"> This Weekend</label>
+            <label><input type="radio"> This Week</label>
+            <label><input type="radio"> This Month</label>
+        </div>
+
+    </div>
+
+
+    <!-- RIGHT CONTENT -->
+    <div class="mv-sports-right">
+
+        <h2>Upcoming Matches</h2>
+
+        <div class="mv-sports-grid">
+
+            <!-- CARD 1 -->
+            <div class="mv-sports-card">
+                <div class="mv-sports-img">
+                    <img src="/static/images/finaa.webp">
+                    <div class="mv-sports-tag">Cricket</div>
+                </div>
+
+                <div class="mv-sports-info">
+                    <h3>IPL 2026</h3>
+                    <p>Chennai Super Kings vs Mumbai Indians</p>
+                    <p>📅 12 Apr 2026</p>
+                    <p>⏰ 7:30 PM</p>
+                    <p>📍 MA Chidambaram Stadium, Chennai</p>
+
+                    <div class="mv-sports-bottom">
+                        <span>₹250</span>
+                        <button>Book Ticket</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="mv-sports-card">
+                <div class="mv-sports-img">
+                    <img src="/static/images/super.png">
+                    <div class="mv-sports-tag">Football</div>
+                </div>
+
+                <div class="mv-sports-info">
+                    <h3>AFC Champions League</h3>
+                    <p>Al Nassr vs Al Hilal</p>
+                    <p>📅 10 May 2026</p>
+                    <p>⏰ 8:30 PM</p>
+                    <p>📍 Riyadh Stadium</p>
+
+                    <div class="mv-sports-bottom">
+                        <span>₹250</span>
+                        <button>Book Ticket</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="mv-sports-card">
+                <div class="mv-sports-img">
+                    <img src="/static/images/kabadi.webp">
+                    <div class="mv-sports-tag">Tennis</div>
+                </div>
+
+                <div class="mv-sports-info">
+                    <h3>Chennai Open Tennis</h3>
+                    <p>Carlos Alcaraz vs Daniil Medvedev</p>
+                    <p>📅 05 Apr 2026</p>
+                    <p>⏰ 5:00 PM</p>
+                    <p>📍 SDAT Tennis Stadium, Chennai</p>
+
+                    <div class="mv-sports-bottom">
+                        <span>₹250</span>
+                        <button>Book Ticket</button>
+                    </div>
+                </div>
+            </div>
+
+<!-- CARD 4 -->
+<div class="mv-sports-card">
+    <div class="mv-sports-img">
+        <img src="/static/images/tenni.avif">
+        <div class="mv-sports-tag">Tennis</div>
+    </div>
+
+    <div class="mv-sports-info">
+        <h3>Chennai Open Tennis</h3>
+        <p>Carlos Alcaraz vs Daniil Medvedev</p>
+        <p>📅 05 Apr 2026</p>
+        <p>⏰ 5:00 PM</p>
+        <p>📍 SDAT Tennis Stadium, Chennai</p>
+
+        <div class="mv-sports-bottom">
+            <span>₹250</span>
+            <button>Book Ticket</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- CARD 5 -->
+<div class="mv-sports-card">
+    <div class="mv-sports-img">
+        <img src="/static/images/fba.jpg">
+        <div class="mv-sports-tag">Football</div>
+    </div>
+
+    <div class="mv-sports-info">
+        <h3>AFC Champions League</h3>
+        <p>Al Nassr vs Al Hilal</p>
+        <p>📅 10 May 2026</p>
+        <p>⏰ 8:30 PM</p>
+        <p>📍 King Fahd Stadium, Riyadh</p>
+
+        <div class="mv-sports-bottom">
+            <span>₹250</span>
+            <button>Book Ticket</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- CARD 6 -->
+<div class="mv-sports-card">
+    <div class="mv-sports-img">
+        <img src="/static/images/fb.webp">
+        <div class="mv-sports-tag">Basketball</div>
+    </div>
+
+    <div class="mv-sports-info">
+        <h3>NBA Regular Season</h3>
+        <p>LA Lakers vs Golden State Warriors</p>
+        <p>📅 22 Apr 2026</p>
+        <p>⏰ 7:00 PM</p>
+        <p>📍 King Fahd Stadium, Riyadh</p>
+
+        <div class="mv-sports-bottom">
+            <span>₹250</span>
+            <button>Book Ticket</button>
+        </div>
+    </div>
+</div>
+        </div>
+
+    </div>
+
+</div>
+<div class="mv-feature-match-section">
+
+    <h2 class="mv-feature-match-title">Featured Match of the Week</h2>
+
+    <div class="mv-feature-match-card">
+
+        <!-- LEFT IMAGE -->
+        <div class="mv-feature-match-img">
+            <img src="/static/images/crict.png">
+        </div>
+
+        <!-- RIGHT CONTENT -->
+        <div class="mv-feature-match-content">
+
+            <h2>India vs Pakistan</h2>
+
+            <p class="mv-match-meta">
+                03 May 2026 | 7:30 PM | Narendra Modi Stadium, Ahmedabad
+            </p>
+
+            <p class="mv-match-desc">
+                Witness one of the biggest cricket rivalries live in the stadium
+                with thousands of cheering fans.
+            </p>
+
+            <div class="mv-match-buttons">
+                <button class="mv-btn-green">View Details</button>
+                <button class="mv-btn-red">Book Tickets</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<div class="mv-sports-cta-section">
+
+    <div class="mv-sports-cta-overlay">
+
+        <h2>Don’t Miss the Live Sports Action</h2>
+
+        <p>
+            Book tickets for concerts, festivals, and workshops happening near you.
+        </p>
+
+        <button class="mv-sports-cta-btn">Book Event Tickets</button>
+
+    </div>
+
+</div>
+<!-- THEN LOAD JS -->
+<script src="{% static 'js/slider.js' %}"></script>
+{% endblock %}

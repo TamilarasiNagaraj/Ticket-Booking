@@ -1,0 +1,271 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/card.css' %}">
+        <link rel="stylesheet" href="{% static 'css/events.css' %}">
+<!-- SEARCH SECTION -->
+<section class="flight-search-section">
+
+    <!-- TEXT OVER IMAGE -->
+    <div class="search-overlay1">
+        <h2>Discover Amazing Events Near you </h2>
+        <p style="font-size: 11px;">Find concerts, festivals, workshops, and cultural events happening in your city</p>
+    </div>
+
+    <!-- SEARCH BOX -->
+    <div class="search-box-container1">
+        <form method="GET" action="{% url 'events' %}" class="search-box1">
+
+            <input type="text" name="from" placeholder="Event Name" value="{{ request.GET.from }}">
+            <input type="text" name="to" placeholder="Location" value="{{ request.GET.from }}">
+           
+
+            <button type="submit">Find Event</button>
+
+      
+    </div>
+
+</section>
+<br>
+<br>
+<div class="mv-event-section">
+
+    <!-- LEFT FILTER -->
+    <div class="mv-event-left">
+
+        <div class="mv-filter-header">Filters</div>
+
+        <!-- Price -->
+        <div class="mv-event-block">
+            <h4>Price Range</h4>
+            <input type="range" min="200" max="3000">
+            <div class="mv-price-range">
+                <span>₹200</span>
+                <span>₹3,000</span>
+            </div>
+        </div>
+
+        <!-- Language -->
+        <div class="mv-event-block">
+            <h4>Language</h4>
+            <label><input type="radio" name="lang" checked> All</label>
+            <label><input type="radio" name="lang"> English</label>
+            <label><input type="radio" name="lang"> Tamil</label>
+            <label><input type="radio" name="lang"> Hindi</label>
+        </div>
+
+        <!-- City -->
+        <div class="mv-event-block">
+            <h4>City</h4>
+            <label><input type="radio" name="city" checked> Chennai</label>
+            <label><input type="radio" name="city"> Bangalore</label>
+            <label><input type="radio" name="city"> Hyderabad</label>
+            <label><input type="radio" name="city"> Delhi</label>
+        </div>
+
+        <!-- Date -->
+        <div class="mv-event-block">
+            <h4>Date</h4>
+            <label><input type="radio" name="date" checked> Today</label>
+            <label><input type="radio" name="date"> Tomorrow</label>
+            <label><input type="radio" name="date"> This Weekend</label>
+            <label><input type="radio" name="date"> This Week</label>
+            <label><input type="radio" name="date"> This Month</label>
+        </div>
+
+    </div>
+
+
+    <!-- RIGHT SIDE -->
+    <div class="mv-event-right">
+
+        <h2>Upcoming Events</h2>
+
+        <!-- CATEGORY PILLS -->
+        <div class="mv-event-tabs">
+            <span class="active">All</span>
+            <span>Music</span>
+            <span>Comedy</span>
+            <span>Workshop</span>
+            <span>Food</span>
+            <span>Cultural</span>
+        </div>
+
+        <!-- EVENT CARDS -->
+        <div class="mv-event-grid">
+
+            <!-- CARD 1 -->
+            <div class="mv-event-card">
+                <div class="mv-event-img">
+                    <img src="/static/images/eve.png">
+                    <div class="mv-event-tag">Workshop</div>
+                </div>
+
+                <div class="mv-event-info">
+                    <h3>Tech Startup Summit</h3>
+                    <p>📅 20 Oct 2025</p>
+                    <p>⏰ 10:00 AM</p>
+                    <p>📍 Mumbai</p>
+
+                    <div class="mv-event-bottom">
+                        <span>₹250</span>
+                        <button>Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="mv-event-card">
+                <div class="mv-event-img">
+                    <img src="/static/images/food.avif">
+                    <div class="mv-event-tag">Food Festival</div>
+                </div>
+
+                <div class="mv-event-info">
+                    <h3>International Food Festival</h3>
+                    <p>📅 08 Dec 2025</p>
+                    <p>⏰ 5:00 PM</p>
+                    <p>📍 Chennai</p>
+
+                    <div class="mv-event-bottom">
+                        <span>₹250</span>
+                        <button>Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="mv-event-card">
+                <div class="mv-event-img">
+                    <img src="/static/images/mik.jpg">
+                    <div class="mv-event-tag">Workshop</div>
+                </div>
+
+                <div class="mv-event-info">
+                    <h3>Startup Innovation Conference</h3>
+                    <p>📅 14 Nov 2025</p>
+                    <p>⏰ 9:30 AM</p>
+                    <p>📍 Bangalore</p>
+
+                    <div class="mv-event-bottom">
+                        <span>₹250</span>
+                        <button>Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<div class="mv-featured-section">
+
+    <h2 class="mv-featured-title">Featured Event</h2>
+
+    <div class="mv-featured-banner">
+
+        <!-- LEFT ARROW -->
+        <button class="mv-arrow left">&#10094;</button>
+
+        <!-- IMAGE -->
+        <img src="/static/images/eve1.png" class="mv-featured-img">
+
+        <!-- OVERLAY CONTENT -->
+        <div class="mv-featured-content">
+
+            <h2>Chennai Food Carnival 2026</h2>
+
+            <p>Chennai • 12 Jan 2026 • 4:00 PM</p>
+
+            <p class="mv-featured-desc">
+                Enjoy live music, cooking shows, and hundreds of food stalls
+                offering unique flavors and unforgettable experiences.
+            </p>
+
+            <div class="mv-featured-buttons">
+                <button class="mv-btn-green">View Details</button>
+                <button class="mv-btn-red">Book Ticket</button>
+            </div>
+
+        </div>
+
+        <!-- RIGHT ARROW -->
+        <button class="mv-arrow right">&#10095;</button>
+
+    </div>
+
+</div>
+
+
+<div class="mv-cta-section">
+
+    <div class="mv-cta-overlay">
+
+        <h2>Ready to Experience Live Events?</h2>
+
+        <p>
+            Book tickets for concerts, festivals, and workshops happening near you.
+        </p>
+
+        <button class="mv-cta-btn">Book Event Tickets</button>
+
+    </div>
+
+</div>
+
+
+<script>
+document.querySelectorAll('.duration-box').forEach(item => {
+    item.addEventListener('click', function() {
+        const input = this.previousElementSibling;
+        input.checked = true;
+        this.closest('form').submit();
+    });
+});
+
+document.querySelectorAll('.days-container span').forEach(item => {
+    item.addEventListener('click', function() {
+        const input = this.previousElementSibling;
+        input.checked = !input.checked;
+        this.closest('form').submit();
+    });
+});
+document.querySelectorAll('input').forEach(item => {
+    item.addEventListener('change', function(){
+        this.closest('form').submit();
+    });
+});
+const range = document.getElementById("priceRange");
+const value = document.getElementById("priceValue");
+
+range.addEventListener("input", function() {
+    value.innerText = this.value;
+});
+</script>
+
+<script>
+const images = [
+    "/static/images/feature.jpg",
+    "/static/images/event1.jpg",
+    "/static/images/event2.jpg"
+];
+
+let index = 0;
+const img = document.querySelector(".mv-featured-img");
+
+document.querySelector(".mv-arrow.right").onclick = () => {
+    index = (index + 1) % images.length;
+    img.src = images[index];
+};
+
+document.querySelector(".mv-arrow.left").onclick = () => {
+    index = (index - 1 + images.length) % images.length;
+    img.src = images[index];
+};
+</script>
+<!-- THEN LOAD JS -->
+<script src="{% static 'js/slider.js' %}"></script>
+{% endblock %}

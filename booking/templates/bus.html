@@ -1,0 +1,331 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/card.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bus.css' %}">
+<!-- SEARCH SECTION -->
+<section class="flight-search-section">
+
+    <!-- TEXT OVER IMAGE -->
+    <div class="search-overlay1">
+        <h2>Travel Comfortably by Bus </h2>
+        <p style="font-size: 11px;">Search and compare bus routes, Operators, and  schudele to find the best journey for your trip</p>
+    </div>
+
+    <!-- SEARCH BOX -->
+    <div class="search-box-container1">
+        <form method="GET" action="{% url 'bus' %}" class="search-box1">
+
+            <input type="text" name="from" placeholder="From" value="{{ request.GET.from }}">
+            <input type="text" name="to" placeholder="To" value="{{ request.GET.from }}">
+            <input type="date" name="date" value="{{ request.GET.to }}">
+
+            <button type="submit">Search Bus</button>
+
+      
+    </div>
+
+</section>
+
+<div class="flight-main-container">
+
+    <!-- LEFT FILTER -->
+    
+    <div class="flight-filter">
+
+        <div class="flight-filter-header">Filters</div>
+
+        <!-- PRICE -->
+        <div class="flight-filter-section">
+            <div class="flight-filter-title" onclick="toggleFilter(this)">
+                Price Range ▼
+            </div>
+
+            <div class="flight-filter-content">
+                <input type="range" name="price" min="0" max="3000" value="3000" id="priceRange">
+                <p>₹200 - ₹<span id="priceValue">    3000</span></p>
+            </div>
+        </div>
+
+        <!-- DEPARTURE -->
+        <div class="flight-filter-section">
+            <div class="flight-filter-title" onclick="toggleFilter(this)">
+                Arrival Time ▼
+            </div>
+
+            <div class="flight-filter-content">
+                <div class="flight-time-box"> <input type="radio" name="arrival" value="0-6"><i class="fa-regular fa-sun"></i> | 00:00 - 06:00</div>
+                <div class="flight-time-box"> <input type="radio" name="arrival" value="6-12"><i class="fa-solid fa-cloud-sun"></i> | 06:00 - 12:00</div>
+                <div class="flight-time-box"> <input type="radio" name="arrival" value="12-18"> <i class="fa-regular fa-sun"></i> | 12:00 - 18:00</div>
+                <div class="flight-time-box"> <input type="radio" name="arrival" value="18-24"><i class="fa-regular fa-moon"></i> | 18:00 - 24:00</div>
+            </div>
+        </div>
+  <div class="flight-filter-section">
+            <div class="flight-filter-title" onclick="toggleFilter(this)">
+                Departure Time ▼
+            </div>
+
+            <div class="flight-filter-content">
+                <div class="flight-time-box"><input type="radio" name="departure" value="0-6"> <i class="fa-regular fa-sun"></i> | 00:00 - 06:00</div>
+                <div class="flight-time-box"> <input type="radio" name="departure" value="6-12"><i class="fa-solid fa-cloud-sun"></i> | 06:00 - 12:00</div>
+                <div class="flight-time-box">  <input type="radio" name="departure" value="12-18"><i class="fa-regular fa-sun"></i> | 12:00 - 18:00</div>
+                <div class="flight-time-box">  <input type="radio" name="departure" value="18-24"><i class="fa-regular fa-moon"></i> | 18:00 - 24:00</div>
+            </div>
+        </div>
+        
+<!-- TRAVEL CLASS -->
+<div class="flight-filter-section">
+    <div class="flight-filter-title" onclick="toggleFilter(this)">
+        Travel Class ▼
+    </div>
+
+    <div class="flight-filter-content">
+
+        <div class="class-option">
+            <input type="radio" name="class" value="SL">
+            <div class="class-box active">
+                <span>Sleeper (SL)</span>
+                <b>SL</b>
+            </div>
+        </div>
+
+        <div class="class-option">
+            <input type="radio" name="class" value="3A">
+            <div class="class-box">
+                <span>AC 3 Tier</span>
+                <b>3A</b>
+            </div>
+        </div>
+
+        <div class="class-option">
+            <input type="radio" name="class" value="2A">
+            <div class="class-box">
+                <span>AC 2 Tier</span>
+                <b>2A</b>
+            </div>
+        </div>
+
+        <div class="class-option">
+            <input type="radio" name="class" value="1A">
+            <div class="class-box">
+                <span>First Class AC</span>
+                <b>1A</b>
+            </div>
+        </div>
+
+        <div class="class-option">
+            <input type="radio" name="class" value="CC">
+            <div class="class-box">
+                <span>Chair Car</span>
+                <b>CC</b>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="flight-filter-section">
+    <div class="flight-filter-title" onclick="toggleFilter(this)">
+        Duration ▼
+    </div>
+
+    <div class="flight-filter-content">
+
+        <div class="duration-option">
+            <input type="radio" name="duration" value="0-6">
+            <div class="duration-box active">
+                Under 6 Hours
+            </div>
+        </div>
+
+        <div class="duration-option">
+            <input type="radio" name="duration" value="6-10">
+            <div class="duration-box">
+                6 – 10 Hours
+            </div>
+        </div>
+
+        <div class="duration-option">
+            <input type="radio" name="duration" value="10-15">
+            <div class="duration-box">
+                10 – 15 Hours
+            </div>
+        </div>
+
+        <div class="duration-option">
+            <input type="radio" name="duration" value="15+">
+            <div class="duration-box">
+                15+ Hours
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- RUNNING DAYS -->
+<div class="flight-filter-section">
+    <div class="flight-filter-title" onclick="toggleFilter(this)">
+        Running Days ▼
+    </div>
+
+    <div class="flight-filter-content">
+
+        <div class="days-container">
+            <label><input type="checkbox" name="day" value="M"><span>M</span></label>
+            <label><input type="checkbox" name="day" value="T"><span>T</span></label>
+            <label><input type="checkbox" name="day" value="W"><span>W</span></label>
+            <label><input type="checkbox" name="day" value="T"><span>T</span></label>
+            <label><input type="checkbox" name="day" value="F"><span>F</span></label>
+            <label><input type="checkbox" name="day" value="S"><span>S</span></label>
+            <label><input type="checkbox" name="day" value="S"><span>S</span></label>
+        </div>
+
+    </div>
+
+    </form>
+</div>
+ </div>
+
+    <!-- RIGHT CONTENT -->
+<!-- RIGHT CONTENT -->
+<div class="flight-content">
+
+{% if buses %}
+{% for bus in buses %}
+
+<div class="train-card">  <!-- you can rename to bus-card later -->
+
+    <!-- LEFT -->
+    <div class="train-left">
+
+        <h3>{{ bus.name }} ({{ bus.bus_type }})</h3>
+
+        <p>Amenities: {{ bus.amenities }}</p>
+
+        <div class="train-time">
+
+            <div>
+                <p>Departure</p>
+                <h2>{{ bus.departure_time }}</h2>
+                <small>{{ bus.from_city }}</small>
+            </div>
+
+            <div>
+                <p>Arrival</p>
+                <h2>{{ bus.arrival_time }}</h2>
+                <small>{{ bus.to_city }}</small>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="train-right">
+
+        <p>⏱ {{ bus.duration }}</p>
+
+        <p class="price">₹{{ bus.price }}</p>
+
+        <!-- ✅ FIXED BUTTON -->
+        <a href="{% url 'common_booking' 'bus' bus.id %}" class="book-btn" style="text-decoration: none;">
+            Book Now
+        </a>
+
+    </div>
+
+</div>
+
+{% endfor %}
+
+{% else %}
+<div class="no-data">
+    ❌ No records found
+</div>
+{% endif %}
+
+
+</div>
+</div>
+<section class="testimonial-slider1">
+  <h2 style="text-align:center; margin-bottom:20px;color: white;">Happy Customers</h2>
+
+  <div class="testimonial-track">
+
+    {% for t in testimonials %}
+    <div class="testimonial-card">
+
+      <div class="profile">
+        {% if t.image %}
+          <img src="{{ t.image.url }}">
+        {% else %}
+          <img src="{% static 'images/user.png' %}">
+        {% endif %}
+      </div>
+
+      <p class="review">"{{ t.review }}"</p>
+
+      <h4>{{ t.name }}</h4>
+
+      {% if t.location %}
+        <span>{{ t.location }}</span>
+      {% endif %}
+
+    </div>
+    {% empty %}
+      <p style="color: white;">No testimonials yet</p>
+    {% endfor %}
+
+  </div>
+</section>
+
+
+<div class="train-cta-section">
+
+    <div class="train-cta-overlay">
+        <h2>Ready for Your Next Bus Journey?</h2>
+        <p>
+            
+            Find the best buses and book your tickets in just a few clicks.
+        </p>
+
+        <a href="{% url 'bus' %}">
+            <button class="train-cta-btn">Book Bus Tickets</button>
+        </a>
+    </div>
+
+</div>
+<script>
+document.querySelectorAll('.duration-box').forEach(item => {
+    item.addEventListener('click', function() {
+        const input = this.previousElementSibling;
+        input.checked = true;
+        this.closest('form').submit();
+    });
+});
+
+document.querySelectorAll('.days-container span').forEach(item => {
+    item.addEventListener('click', function() {
+        const input = this.previousElementSibling;
+        input.checked = !input.checked;
+        this.closest('form').submit();
+    });
+});
+document.querySelectorAll('input').forEach(item => {
+    item.addEventListener('change', function(){
+        this.closest('form').submit();
+    });
+});
+const range = document.getElementById("priceRange");
+const value = document.getElementById("priceValue");
+
+range.addEventListener("input", function() {
+    value.innerText = this.value;
+});
+</script>
+<!-- THEN LOAD JS -->
+<script src="{% static 'js/slider.js' %}"></script>
+{% endblock %}

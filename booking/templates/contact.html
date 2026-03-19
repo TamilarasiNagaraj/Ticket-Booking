@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="contact-hero">
+  <h2>Contact TicketVerse</h2>
+  <p>Have questions about bookings, events, or activities? Our team is here to help.</p>
+</section>
+
+<!-- CONTACT INFO -->
+<section class="contact-info">
+
+  <h2>Get In Touch</h2>
+  <p>Our Contact Information</p>
+
+  <div class="info-cards">
+
+    <div class="info-card">
+      <div class="icon2">📍</div>
+      <h3>Our Address</h3>
+      <p>No. 120, Anna Salai, Teynampet<br>Chennai, Tamil Nadu<br>India – 600018</p>
+    </div>
+
+    <div class="info-card">
+      <div class="icon2">📞</div>
+      <h3>Phone Number</h3>
+      <p>+91 98765 43210<br>+91 98765 43210</p>
+    </div>
+
+    <div class="info-card">
+      <div class="icon2">✉️</div>
+      <h3>Email Address</h3>
+      <p>info@ticketverse.com</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FEEDBACK FORM -->
+<!-- FEEDBACK FORM -->
+<section class="contact-form-section">
+
+  <h2>Feel Free to Write</h2>
+  <br>
+
+  {% if user.is_authenticated %}
+
+  <form method="POST">
+    {% csrf_token %}
+
+    <div class="form-row">
+      <!-- AUTO FILLED NAME -->
+      <input type="text" name="name" value="{{ user.username }}" readonly>
+
+      <input type="text" name="subject" placeholder="Enter Subject" required>
+    </div>
+    <br>
+
+    <div class="form-row">
+      <!-- AUTO FILLED EMAIL -->
+      <input type="email" name="email" value="{{ user.email }}">
+
+      <input type="text" name="phone" placeholder="Phone Number">
+    </div>
+    <br>
+
+    <textarea name="message" placeholder="Your Message" required></textarea>
+    <br>
+
+    <button type="submit">Send Message</button>
+
+  </form>
+
+  {% else %}
+
+  <!-- NOT LOGGED IN -->
+  <div style="text-align:center; margin-top:20px;">
+    <p style="color:red;">Please login to submit feedback</p>
+    <a href="{% url 'login' %}" class="login-btn">Login</a>
+  </div>
+
+  {% endif %}
+
+</section>
+
+<!-- MAP -->
+<section class="map-section">
+  <img src="{% static 'images/map.png' %}" alt="map">
+</section>
+
+{% endblock %}
